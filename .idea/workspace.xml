@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2de4050e-80ba-4aa6-9c1f-fe7d161d95b8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mybatis整体架构图01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mybatis整体架构图02.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
@@ -34,7 +35,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -48,6 +49,7 @@
       <recent name="mybatis" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\mybatis-test" />
       <recent name="D:\IdeaProjects\mybatis-test\src\main\resources" />
       <recent name="D:\IdeaProjects\mybatis-test\src\main\java" />
     </key>
@@ -97,8 +99,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1575441721720</updated>
-      <workItem from="1575441724813" duration="4100000" />
+      <workItem from="1575441724813" duration="7120000" />
     </task>
+    <task id="LOCAL-00001" summary="第一个mybatis项目&#10;mysql-connector &#10;测试读取文件访问数据库">
+      <created>1575446001872</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1575446001872</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,5 +129,7 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/mybatis-test" />
     </ignored-roots>
+    <MESSAGE value="第一个mybatis项目&#10;mysql-connector &#10;测试读取文件访问数据库" />
+    <option name="LAST_COMMIT_MESSAGE" value="第一个mybatis项目&#10;mysql-connector &#10;测试读取文件访问数据库" />
   </component>
 </project>
