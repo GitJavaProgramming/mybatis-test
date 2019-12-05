@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns="http://org.pp.mybatis/schema/inventory"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://org.pp.mybatis/schema/inventory">
+    <xsd:annotation>
+        <xsd:documentation source="D:/IdeaProjects/mybatis-test/src/main/java/org/pp/mybatis/foundationsupportlayer/parser/inventory-schema.xml"><![CDATA[
+        库存目录XML Schema描述，库存中有很多本书
+            ]]>
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:element name="inventory">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element minOccurs="0" maxOccurs="unbounded" ref="book"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="book">
+        <xsd:annotation>
+            <xsd:documentation source="D:/IdeaProjects/mybatis-test/src/main/java/org/pp/mybatis/foundationsupportlayer/parser/inventory-schema.xml"><![CDATA[
+        库存中的书，书有属性：title、author、publisher、isbn、price。
+            ]]>
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="title"/>
+                <xsd:element minOccurs="0" maxOccurs="unbounded" ref="author"/>
+                <xsd:element ref="publisher"/>
+                <xsd:element ref="isbn"/>
+                <xsd:element ref="price"/>
+            </xsd:sequence>
+            <xsd:attribute name="year"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="title" type="xsd:string"/>
+    <xsd:element name="author" type="xsd:string"/>
+    <xsd:element name="publisher" type="xsd:string"/>
+    <xsd:element name="isbn" type="xsd:string"/>
+    <xsd:element name="price" type="xsd:string"/>
+</xsd:schema>

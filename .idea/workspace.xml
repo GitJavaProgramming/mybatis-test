@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2de4050e-80ba-4aa6-9c1f-fe7d161d95b8" name="Default Changelist" comment="">
+    <list default="true" id="2de4050e-80ba-4aa6-9c1f-fe7d161d95b8" name="Default Changelist" comment="至此Java解析XML模块已经结束&#10; 为xml文档添加XML Schema验证">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/parser/inventory-schema.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/parser/inventory.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/pp/mybatis/foundationsupportlayer/parser/XPathTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/parser/XPathTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/parser/XPathTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +47,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/parser" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -57,6 +61,7 @@
       <recent name="mybatis" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\mybatis-test\src\main\java\org\pp\mybatis\foundationsupportlayer\parser" />
       <recent name="D:\IdeaProjects\mybatis-test" />
       <recent name="D:\IdeaProjects\mybatis-test\src\main\resources" />
       <recent name="D:\IdeaProjects\mybatis-test\src\main\java" />
@@ -168,7 +173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575511867731</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="xml基础知识&#10;编写dtd验证xml">
+      <created>1575512871530</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1575512871530</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,6 +206,7 @@
     <MESSAGE value="Merge branch 'master' of https://github.com/GitJavaProgramming/mybatis-test&#10;&#10;# Conflicts:&#10;#&#9;README.md" />
     <MESSAGE value="不合并分支" />
     <MESSAGE value="xml基础知识&#10;编写dtd验证xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="xml基础知识&#10;编写dtd验证xml" />
+    <MESSAGE value="至此Java解析XML模块已经结束&#10; 为xml文档添加XML Schema验证" />
+    <option name="LAST_COMMIT_MESSAGE" value="至此Java解析XML模块已经结束&#10; 为xml文档添加XML Schema验证" />
   </component>
 </project>

@@ -1,30 +1,13 @@
 # mybatis-test
  **mybatis源码研究-2019/12/04**
-
-***主要参考资料：***  
-> - [x] [MyBatis技术内幕  徐郡明  2017/07](https://pan.baidu.com/s/1-JGtoXADDjQRw5v51np4vA "提取码是fcak")  
-> - [x] [MyBatis 3 源码深度解析  江荣波  2019/10](https://pan.baidu.com/s/1-JGtoXADDjQRw5v51np4vA "最新出版没有电子书")  
-> - [x] [MyBatis从入门到精通  刘增辉  2017/07](https://pan.baidu.com/s/1-JGtoXADDjQRw5v51np4vA "提取码是fcak")   
-> - [x] [深入浅出MyBatis 技术原理与实战  杨开振  2016/09](https://pan.baidu.com/s/1-JGtoXADDjQRw5v51np4vA "提取码是fcak")  
-> - [x] [xml](https://www.w3school.com.cn/xml/index.asp "W3CSchool") 
-> - [x] [dtd](https://www.w3school.com.cn/dtd/dtd_entities.asp "W3CSchool") 
-> - [x] [schema](https://www.w3school.com.cn/schema/index.asp "W3CSchool") 
-> - [x] [xpath](https://www.w3school.com.cn/xpath/xpath_nodes.asp "W3CSchool") 
-> - [x] [XML入门经典(第5版)  第I部分-->第III部分](https://pan.baidu.com/s/1M3HSfL3VQgpVvHa_ekUjvQ "提取码是9mfm")  
-> - [x] [疯狂XML讲义](https://pan.baidu.com/s/1M3HSfL3VQgpVvHa_ekUjvQ "提取码是9mfm")  
-> - [x] [XML揭秘 入门·应用·精通 Michael Morrison 陆新年](https://pan.baidu.com/s/1M3HSfL3VQgpVvHa_ekUjvQ "提取码是9mfm")  
-> - [x] [《XML简明教程》2009年清华大学出版社出版 张欣毅](https://www.baidu.com "xml基础简明教程，没找到电子版。")  
-
   
 ***mybatis整体架构***  
-> mybatis整体架构分为三层，分别是基础支持层、核心处理层和接口层。
-> ![mybatis整体架构图](./mybatis整体架构图02.png "mybatis整体架构图")  
 
-***mybatis思维导图***
-> ![mybatis思维导图](./mybatis整体架构图01.png "mybatis思维导图")
+mybatis整体架构分为三层，分别是基础支持层、核心处理层和接口层。  
+> ![mybatis整体架构图](./mybatis整体架构图02.png "mybatis整体架构图")    
 
-
-# XML基础知识
+****
+# XML基础知识（名称空间/文档验证/文档处理）
 
 ## XML
 所有的 XML 文档（以及 HTML 文档）均由以下简单的构建模块构成：  
@@ -39,6 +22,9 @@
 名称空间为了避免条目命名冲突  
 
 ## DTD(Document Type Definition)  
+
+参考资料：
+>  [XML入门经典(第5版)  第I部分-->第III部分](https://pan.baidu.com/s/1M3HSfL3VQgpVvHa_ekUjvQ "提取码是9mfm")
 
 文档类型声明或DOCTYPE告诉解析器，XML文档必须遵循DTD定义。同时它也告诉解析器，到哪里找到文档定义的其余内容。  
 `<!DOCTYPE name [ ]>`
@@ -95,4 +81,124 @@ ATTLIST包含三个部分：ATTLIST关键字 相应元素名 属性列表
 ```
 上面例子指出book元素包含year属性，CDATA用来定义属性类型，#IMPLIED指出该属性不是必须的。  
 `ref:  https://www.w3school.com.cn/dtd/dtd_attributes.asp`
+
+## schema
+XML Schema 参考手册：  
+> https://www.w3school.com.cn/schema/schema_elements_ref.asp
+
+            XML Schema 是基于 XML 的 DTD 替代者。XML Schema也称为XML框架或XML模式。通过Schema可以描述和规范XML文档的数据模式和组织结构，规定  
+        XML文档中可以包含哪些元素、这些元素拥有哪些子元素及其出现的顺序和次数，还规定每个元素和属性的数据类型。与DTD相比，通过XML Schema可以  
+        更好地规范和验证有效的XML文档。
+            XML Schema总是以独立文档形式存在，其文件扩展名为.xsd。XML Schema文档本身就是一个符合XML规范的、格式良好的XML文档，该文档通过一套预先
+        定义的XML元素及其属性创建的，正是这些特定的元素和属性规定了XML文档的结构和内容模式。
+
+Schema文档从一个XML文档声明开始，其后的内容是对根元素schema的声明。根据需要，还可以从一个Schema文档中包含或导入其他Schema文档。  
+eg. http://www.springframework.org/schema/beans/spring-beans-4.1.xsd  文档基本框架如下：
+```xml
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		targetNamespace="http://www.springframework.org/schema/beans">
+
+	<xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <!--元素和属性声明-->
+</xsd:schema>
+```
+    xmlns：指定该schema的默认名称空间
+    targetNamespace：声明了在该xsd文档下定义的元素属于该命名空间
+    schemaLocation：告诉验证器去哪里找到可用于验证的XML Schema文档
+
+举个栗子：  
+```java
+    /** Default Servlet name used by Tomcat, Jetty, JBoss, and GlassFish */
+	private static final String COMMON_DEFAULT_SERVLET_NAME = "default";
+	/** Default Servlet name used by Google App Engine */
+	private static final String GAE_DEFAULT_SERVLET_NAME = "_ah_default";
+	/** Default Servlet name used by Resin */
+	private static final String RESIN_DEFAULT_SERVLET_NAME = "resin-file";
+	/** Default Servlet name used by WebLogic */
+	private static final String WEBLOGIC_DEFAULT_SERVLET_NAME = "FileServlet";
+	/** Default Servlet name used by WebSphere */
+	private static final String WEBSPHERE_DEFAULT_SERVLET_NAME = "SimpleFileServlet";
+``` 
+如果web.xml中配置了某个servlet拦截了所有的请求，那么一些静态资源的访问如jpg，css，js也会被处理。      
+```xml
+<servlet-mapping>     
+    <servlet-name>default</servlet-name>    
+    <url-pattern>*.jpg</url-pattern>       
+</servlet-mapping>      
+<servlet-mapping>         
+    <servlet-name>default</servlet-name>      
+    <url-pattern>*.js</url-pattern>      
+</servlet-mapping>      
+<servlet-mapping>          
+    <servlet-name>default</servlet-name>         
+    <url-pattern>*.css</url-pattern>        
+</servlet-mapping>
+```
+在springMVC-servlet.xml中配置：<mvc:default-servlet-handler/> 这个元素声明在：http://www.springframework.org/schema/mvc/spring-mvc.xsd(FAQ. 自动匹配xsd版本?)
+```xml
+<xsd:element name="default-servlet-handler">
+		<xsd:annotation>
+			<xsd:documentation
+				source="java:org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler"><![CDATA[
+	Configures a handler for serving static resources by forwarding to the Servlet container's default Servlet.  Use of this
+	handler allows using a "/" mapping with the DispatcherServlet while still utilizing the Servlet container to serve static
+	resources.
+	This handler will forward all requests to the default Servlet. Therefore it is important that it remains last in the
+	order of all other URL HandlerMappings. That will be the case if you use the "annotation-driven" element or alternatively
+	if you are setting up your customized HandlerMapping instance be sure to set its "order" property to a value lower than
+	that of the DefaultServletHttpRequestHandler, which is Integer.MAX_VALUE.
+			]]></xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:attribute name="default-servlet-name" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+	The name of the default Servlet to forward to for static resource requests.  The handler will try to auto-detect the container's
+	default Servlet at startup time using a list of known names.  If the default Servlet cannot be detected because of using an unknown
+	container or because it has been manually configured, the servlet name must be set explicitly.
+					]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+```
+删除文档注释，可以看到*复合类型元素default-servlet-handler*包含一个*default-servlet-name属性*，通过转发请求到Servlet容器的default-servlet从而达到对静态资源的处理。  
+（具体实现请参考，笔者版本spring4.1.9：org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler）  
+```xml
+<!--通过转发到Servlet容器的默认Servlet来配置用于提供静态资源的处理程序。-->
+<xsd:element name="default-servlet-handler">
+		<xsd:complexType>
+			<xsd:attribute name="default-servlet-name" type="xsd:string">
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+```
+最后介绍一个xml/dtd转xsd工具[trang](https://pan.baidu.com/s/1BEhMthozcXUCnMRKvxi1pg "验证码：yc2a")
+```dos
+cd C:\Users\45554\Downloads\trang-20030619
+java -jar .\trang.jar .\inventory.dtd inventory.xsd
+```
+FAQ. 自行比较DTD与XML schema  
+FAQ. 阅读其他主题XPath、xslt、DOM、Java与xml等  
+****
+
+***mybatis思维导图***  
+> ![mybatis思维导图](./mybatis整体架构图01.png "mybatis思维导图")  
+
+***主要参考资料：***  
+> - [x] [MyBatis技术内幕  徐郡明  2017/07](https://pan.baidu.com/s/1-JGtoXADDjQRw5v51np4vA "提取码是fcak")  
+> - [x] [MyBatis 3 源码深度解析  江荣波  2019/10](https://pan.baidu.com/s/1-JGtoXADDjQRw5v51np4vA "最新出版没有电子书")  
+> - [x] [MyBatis从入门到精通  刘增辉  2017/07](https://pan.baidu.com/s/1-JGtoXADDjQRw5v51np4vA "提取码是fcak")   
+> - [x] [深入浅出MyBatis 技术原理与实战  杨开振  2016/09](https://pan.baidu.com/s/1-JGtoXADDjQRw5v51np4vA "提取码是fcak")  
+> - [x] [xml](https://www.w3school.com.cn/xml/index.asp "W3CSchool") 
+> - [x] [dtd](https://www.w3school.com.cn/dtd/dtd_entities.asp "W3CSchool") 
+> - [x] [schema](https://www.w3school.com.cn/schema/index.asp "W3CSchool") 
+> - [x] [xpath](https://www.w3school.com.cn/xpath/xpath_nodes.asp "W3CSchool") 
+> - [x] [XML入门经典(第5版)  第I部分-->第III部分](https://pan.baidu.com/s/1M3HSfL3VQgpVvHa_ekUjvQ "提取码是9mfm")  
+> - [x] [疯狂XML讲义](https://pan.baidu.com/s/1M3HSfL3VQgpVvHa_ekUjvQ "提取码是9mfm")  
+> - [x] [XML揭秘 入门·应用·精通 Michael Morrison 陆新年](https://pan.baidu.com/s/1M3HSfL3VQgpVvHa_ekUjvQ "提取码是9mfm")  
+> - [x] [《XML简明教程》2009年清华大学出版社出版 张欣毅](https://www.baidu.com "xml基础简明教程，没找到电子版。")  
+> - [x] [Java与XML](https://www.baidu.com "java访问xml")  
 
