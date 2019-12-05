@@ -67,7 +67,7 @@
 
 #### 元素声明
 由三个部分组成：ELEMENT声明 元素名 元素内容模型
-```XML  
+``` XML  
 <!ELEMENT name (first, middle, last)>
 ```
 ELEMENT声明告诉解析器当前声明一个元素。
@@ -86,4 +86,13 @@ ELEMENT声明告诉解析器当前声明一个元素。
 `+`		|表示元素出现一次或多次
 `*`		|表示元素出现零次或多次
 
-    
+#### 属性声明    
+属性声明需要使用ATTLIST关键字。  
+ATTLIST包含三个部分：ATTLIST关键字 相应元素名 属性列表  
+``` xml
+<!ELEMENT book (title, author*, publisher,isbn,price)>
+<!ATTLIST book year CDATA #IMPLIED>
+```
+上面例子指出book元素包含year属性，CDATA用来定义属性类型，#IMPLIED指出该属性不是必须的。  
+`ref:  https://www.w3school.com.cn/dtd/dtd_attributes.asp`
+
