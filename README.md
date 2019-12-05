@@ -1,9 +1,27 @@
-<!-- TOC -->autoauto- [mybatis-test](#mybatis-test)auto- [XML基础知识（名称空间/文档验证/文档处理）](#xml基础知识名称空间文档验证文档处理)auto    - [XML](#xml)auto    - [XML名称空间](#xml名称空间)auto    - [DTD(Document Type Definition)](#dtddocument-type-definition)auto        - [系统标识符：](#系统标识符)auto        - [公共标识符：](#公共标识符)auto        - [DTD详述](#dtd详述)auto            - [元素声明](#元素声明)auto                - [一个元素内容模型定义了可允许的元素内容。](#一个元素内容模型定义了可允许的元素内容)auto                - [基数是指这个元素在内容模型中出现的次数。DTD有4个基数指示符。](#基数是指这个元素在内容模型中出现的次数dtd有4个基数指示符)auto            - [属性声明](#属性声明)auto    - [schema](#schema)autoauto<!-- /TOC -->
 # mybatis-test
  **mybatis源码研究-2019/12/04**
+ 
+导航目录
+=================
+
+   * [mybatis-test](#mybatis-test)
+   * [XML基础知识（名称空间/文档验证/文档处理）](#xml基础知识名称空间文档验证文档处理)
+      * [XML](#xml)
+      * [XML名称空间](#xml名称空间)
+      * [DTD(Document Type Definition)](#dtddocument-type-definition)
+         * [系统标识符：](#系统标识符)
+         * [公共标识符：](#公共标识符)
+         * [DTD详述](#dtd详述)
+            * [元素声明](#元素声明)
+               * [一个元素内容模型定义了可允许的元素内容。](#一个元素内容模型定义了可允许的元素内容)
+               * [基数是指这个元素在内容模型中出现的次数。DTD有4个基数指示符。](#基数是指这个元素在内容模型中出现的次数dtd有4个基数指示符)
+            * [属性声明](#属性声明)
+      * [schema](#schema)
+      * [<em><strong>mybatis思维导图</strong></em>](#mybatis思维导图)
+      * [<em><strong>主要参考资料：</strong></em>](#主要参考资料)
+
 
 ****
-
 ***mybatis整体架构***  
 
 mybatis整体架构分为三层，分别是基础支持层、核心处理层和接口层。  
@@ -167,7 +185,7 @@ eg. http://www.springframework.org/schema/beans/spring-beans-4.1.xsd  文档基�
 		</xsd:complexType>
 	</xsd:element>
 ```
-删除文档注释，可以看到*复合类型元素default-servlet-handler*包含一个*default-servlet-name属性*，通过转发请求到Servlet容器的default-servlet从而达到对静态资源的处理。  
+删除文档注释，可以看到*复合类型元素default-servlet-handler有且只有一个default-servlet-name属性*，通过转发请求到Servlet容器的default-servlet从而达到对静态资源的处理。  
 （具体实现请参考，笔者版本spring4.1.9：org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler）  
 ```xml
 <!--通过转发到Servlet容器的默认Servlet来配置用于提供静态资源的处理程序。-->
@@ -187,10 +205,10 @@ FAQ. 自行比较DTD与XML schema
 FAQ. 阅读其他主题XPath、xslt、DOM、Java与xml等  
 ****
 
-***mybatis思维导图***  
+## ***mybatis思维导图***  
 > ![mybatis思维导图](./mybatis整体架构图01.png "mybatis思维导图")  
 
-***主要参考资料：***  
+## ***主要参考资料：***  
 > - [x] [MyBatis技术内幕  徐郡明  2017/07](https://pan.baidu.com/s/1-JGtoXADDjQRw5v51np4vA "提取码是fcak")  
 > - [x] [MyBatis 3 源码深度解析  江荣波  2019/10](https://pan.baidu.com/s/1-JGtoXADDjQRw5v51np4vA "最新出版没有电子书")  
 > - [x] [MyBatis从入门到精通  刘增辉  2017/07](https://pan.baidu.com/s/1-JGtoXADDjQRw5v51np4vA "提取码是fcak")   

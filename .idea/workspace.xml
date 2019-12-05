@@ -126,7 +126,7 @@
       <option name="presentableId" value="Default" />
       <updated>1575441721720</updated>
       <workItem from="1575441724813" duration="8478000" />
-      <workItem from="1575538677428" duration="1482000" />
+      <workItem from="1575538677428" duration="3010000" />
     </task>
     <task id="LOCAL-00001" summary="第一个mybatis项目&#10;mysql-connector &#10;测试读取文件访问数据库">
       <created>1575446001872</created>
@@ -191,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575538742799</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="生成目录">
+      <created>1575541950161</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1575541950161</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
