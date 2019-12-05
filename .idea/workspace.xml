@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2de4050e-80ba-4aa6-9c1f-fe7d161d95b8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/parser/XPathTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/parser/inventory.dtd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/parser/inventory.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
@@ -157,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575449698831</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="xml基础知识&#10;编写dtd验证xml">
+      <created>1575511363362</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1575511363362</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,6 +186,7 @@
     <MESSAGE value="收集mybatis整体架构图与思维导图" />
     <MESSAGE value="Merge branch 'master' of https://github.com/GitJavaProgramming/mybatis-test&#10;&#10;# Conflicts:&#10;#&#9;README.md" />
     <MESSAGE value="不合并分支" />
-    <option name="LAST_COMMIT_MESSAGE" value="不合并分支" />
+    <MESSAGE value="xml基础知识&#10;编写dtd验证xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="xml基础知识&#10;编写dtd验证xml" />
   </component>
 </project>
