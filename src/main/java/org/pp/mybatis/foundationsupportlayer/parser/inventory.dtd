@@ -1,0 +1,8 @@
+<!ELEMENT inventory (book*)>
+        <!ELEMENT book      (title, author*, publisher,isbn,price)>
+        <!ATTLIST book year CDATA #IMPLIED>
+        <!ELEMENT title    (#PCDATA)>
+        <!ELEMENT author (#PCDATA)>
+        <!ELEMENT publisher    (#PCDATA)>
+        <!ELEMENT isbn    (#PCDATA)>
+        <!ELEMENT price    (#PCDATA)>
