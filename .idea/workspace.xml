@@ -126,7 +126,7 @@
       <option name="presentableId" value="Default" />
       <updated>1575441721720</updated>
       <workItem from="1575441724813" duration="8478000" />
-      <workItem from="1575538677428" duration="49000" />
+      <workItem from="1575538677428" duration="1482000" />
     </task>
     <task id="LOCAL-00001" summary="第一个mybatis项目&#10;mysql-connector &#10;测试读取文件访问数据库">
       <created>1575446001872</created>
@@ -184,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575535869292</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="生成目录">
+      <created>1575538742799</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1575538742799</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,6 +220,7 @@
     <MESSAGE value="不合并分支" />
     <MESSAGE value="xml基础知识&#10;编写dtd验证xml" />
     <MESSAGE value="至此Java解析XML模块已经结束&#10; 为xml文档添加XML Schema验证" />
-    <option name="LAST_COMMIT_MESSAGE" value="至此Java解析XML模块已经结束&#10; 为xml文档添加XML Schema验证" />
+    <MESSAGE value="生成目录" />
+    <option name="LAST_COMMIT_MESSAGE" value="生成目录" />
   </component>
 </project>
