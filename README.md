@@ -1,6 +1,10 @@
 # mybatis-test
  **mybatis源码研究-2019/12/04**
-  
+
+<!-- TOC -->autoauto- [mybatis-test](#mybatis-test)auto- [XML基础知识（名称空间/文档验证/文档处理）](#xml基础知识名称空间文档验证文档处理)auto    - [XML](#xml)auto    - [XML名称空间](#xml名称空间)auto    - [DTD(Document Type Definition)](#dtddocument-type-definition)auto        - [系统标识符：](#系统标识符)auto        - [公共标识符：](#公共标识符)auto        - [DTD详述](#dtd详述)auto            - [元素声明](#元素声明)auto                - [一个元素内容模型定义了可允许的元素内容。](#一个元素内容模型定义了可允许的元素内容)auto                - [基数是指这个元素在内容模型中出现的次数。DTD有4个基数指示符。](#基数是指这个元素在内容模型中出现的次数dtd有4个基数指示符)auto            - [属性声明](#属性声明)auto    - [schema](#schema)autoauto<!-- /TOC -->
+
+****
+
 ***mybatis整体架构***  
 
 mybatis整体架构分为三层，分别是基础支持层、核心处理层和接口层。  

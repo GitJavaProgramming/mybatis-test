@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2de4050e-80ba-4aa6-9c1f-fe7d161d95b8" name="Default Changelist" comment="至此Java解析XML模块已经结束&#10; 为xml文档添加XML Schema验证">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/parser/inventory-schema.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/parser/inventory.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/pp/mybatis/foundationsupportlayer/parser/XPathTest.class" afterDir="false" />
+    <list default="true" id="2de4050e-80ba-4aa6-9c1f-fe7d161d95b8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/parser/XPathTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/parser/XPathTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -130,6 +126,7 @@
       <option name="presentableId" value="Default" />
       <updated>1575441721720</updated>
       <workItem from="1575441724813" duration="8478000" />
+      <workItem from="1575538677428" duration="49000" />
     </task>
     <task id="LOCAL-00001" summary="第一个mybatis项目&#10;mysql-connector &#10;测试读取文件访问数据库">
       <created>1575446001872</created>
@@ -180,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575512871530</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="至此Java解析XML模块已经结束&#10; 为xml文档添加XML Schema验证">
+      <created>1575535869292</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1575535869292</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,7 +195,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
