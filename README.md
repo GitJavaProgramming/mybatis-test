@@ -71,9 +71,10 @@ mybatis整体架构分为三层，分别是基础支持层、核心处理层和�
 根据XML规范，公共标识符可以采用任何格式，但是一种经常使用的格式是正式公共标识符(Formal Public Identifier, FPI)。
 >	FPI的语法要匹配下面的基本结构：  
 >	    -//Owner//Class Description//Language//Version  
->   从底层的角度看，它与名称空间的作用相似，但是公共标识符不能把两个不同的词汇组合到同一个文档里。就因为这一点，名称空间比它功能更强大。
+>   从底层的角度看，它与名称空间的作用相似，但是公共标识符不能把两个不同的词汇组合到同一个文档里。所以名称空间比它功能更强大。  
 
-在标识符字符串之后，还可以插入一个可选的系统标识符。这样，当处理器不能解析公共标识符时，可以查找这个文档的副本（大多数处理器不能解析公共标识符）。  
+在标识符字符串之后，还可以插入一个可选的系统标识符。这样，当处理器不能解析公共标识符时，可以查找这个文档的副本（大多数处理器    
+不能解析公共标识符）。    
 `<!DOCTYPE name PUBLIC "-//Beginning XML//DTD Name Example//EN" "name.dtd">`
 
 ### DTD详述
@@ -111,7 +112,7 @@ ATTLIST包含三个部分：ATTLIST关键字 相应元素名 属性列表
 <!ATTLIST book year CDATA #IMPLIED>
 ```
 上面例子指出book元素包含year属性，CDATA用来定义属性类型，#IMPLIED指出该属性不是必须的。  
-`ref:  https://www.w3school.com.cn/dtd/dtd_attributes.asp`
+`ref:  https://www.w3school.com.cn/dtd/dtd_attributes.asp`  
        http://mybatis.org/dtd/mybatis-3-config.dtd    
        http://mybatis.org/dtd/mybatis-3-mapper.dtd    
 
@@ -119,11 +120,11 @@ ATTLIST包含三个部分：ATTLIST关键字 相应元素名 属性列表
 XML Schema 参考手册：  
 > https://www.w3school.com.cn/schema/schema_elements_ref.asp
 
-            XML Schema 是基于 XML 的 DTD 替代者。XML Schema也称为XML框架或XML模式。通过Schema可以描述和规范XML文档的数据模式和组织结构，规定  
-        XML文档中可以包含哪些元素、这些元素拥有哪些子元素及其出现的顺序和次数，还规定每个元素和属性的数据类型。与DTD相比，通过XML Schema可以  
-        更好地规范和验证有效的XML文档。
-            XML Schema总是以独立文档形式存在，其文件扩展名为.xsd。XML Schema文档本身就是一个符合XML规范的、格式良好的XML文档，该文档通过一套预先
-        定义的XML元素及其属性创建的，正是这些特定的元素和属性规定了XML文档的结构和内容模式。
+            XML Schema 是基于 XML 的 DTD 替代者。XML Schema也称为XML框架或XML模式。通过Schema可以描述和规范XML文档的数据模式  
+            和组织结构，规定XML文档中可以包含哪些元素、这些元素拥有哪些子元素及其出现的顺序和次数，还规定每个元素和属性的数据
+            类型。与DTD相比，通过XML Schema可以更好地规范和验证有效的XML文档。  
+            XML Schema总是以独立文档形式存在，其文件扩展名为.xsd。XML Schema文档本身就是一个符合XML规范的、格式良好的XML文  
+            档，该文档通过一套预先定义的XML元素及其属性创建的，正是这些特定的元素和属性规定了XML文档的结构和内容模式。  
 
 Schema文档从一个XML文档声明开始，其后的内容是对根元素schema的声明。根据需要，还可以从一个Schema文档中包含或导入其他Schema文档。  
 eg. http://www.springframework.org/schema/beans/spring-beans-4.1.xsd  文档基本框架如下：
@@ -169,36 +170,11 @@ eg. http://www.springframework.org/schema/beans/spring-beans-4.1.xsd  文档基�
     <url-pattern>*.css</url-pattern>        
 </servlet-mapping>
 ```
-在springMVC-servlet.xml中配置：<mvc:default-servlet-handler/> 这个元素声明在：http://www.springframework.org/schema/mvc/spring-mvc.xsd(FAQ. 自动匹配xsd版本?)
-```xml
-<xsd:element name="default-servlet-handler">
-		<xsd:annotation>
-			<xsd:documentation
-				source="java:org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler"><![CDATA[
-	Configures a handler for serving static resources by forwarding to the Servlet container's default Servlet.  Use of this
-	handler allows using a "/" mapping with the DispatcherServlet while still utilizing the Servlet container to serve static
-	resources.
-	This handler will forward all requests to the default Servlet. Therefore it is important that it remains last in the
-	order of all other URL HandlerMappings. That will be the case if you use the "annotation-driven" element or alternatively
-	if you are setting up your customized HandlerMapping instance be sure to set its "order" property to a value lower than
-	that of the DefaultServletHttpRequestHandler, which is Integer.MAX_VALUE.
-			]]></xsd:documentation>
-		</xsd:annotation>
-		<xsd:complexType>
-			<xsd:attribute name="default-servlet-name" type="xsd:string">
-				<xsd:annotation>
-					<xsd:documentation><![CDATA[
-	The name of the default Servlet to forward to for static resource requests.  The handler will try to auto-detect the container's
-	default Servlet at startup time using a list of known names.  If the default Servlet cannot be detected because of using an unknown
-	container or because it has been manually configured, the servlet name must be set explicitly.
-					]]></xsd:documentation>
-				</xsd:annotation>
-			</xsd:attribute>
-		</xsd:complexType>
-	</xsd:element>
-```
-删除文档注释，可以看到*复合类型元素default-servlet-handler有且只有一个default-servlet-name属性*，通过转发请求到Servlet容器的default-servlet从而达到对静态资源的处理。  
-（具体实现请参考，笔者版本spring4.1.9：org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler）  
+在springMVC-servlet.xml中配置：<mvc:default-servlet-handler/>   
+这个元素声明在：http://www.springframework.org/schema/mvc/spring-mvc.xsd(FAQ. 自动匹配xsd版本?)    
+删除文档注释，可以看到*复合类型元素default-servlet-handler有且只有一个default-servlet-name属性*，  
+通过转发请求到Servlet容器的default-servlet从而达到对静态资源的处理。    
+（具体实现请参考，笔者版本spring4.1.9：org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler）    
 ```xml
 <!--通过转发到Servlet容器的默认Servlet来配置用于提供静态资源的处理程序。-->
 <xsd:element name="default-servlet-handler">
@@ -218,29 +194,32 @@ FAQ. 阅读其他主题XPath、xslt、DOM、Java与xml等
 ****
 
 # Java高级特性
-[JAVA编程思想（第四版）ch01-对象导论](https://pan.baidu.com/s/1vbHMb3XRXato-jFv34HeQQ "验证码：p4th")  
+
 ## 再谈对象
 ### 问题空间与解空间  
-      程序员必须建立起在机器模型（位于“解空间”内，这是你对问题建模的地方，例如计算机）和实际待解问题的模型（位于“问题空间”内，这是问题存    
-    在的地方，例如一项业务）之间的关联。  
-      面向对象方式将问题空间中的元素及其在解空间中的表示称为“对象”。这种思想的实质是：程序可以通过添加新类型的对象使自身适用与某个特定问题。
-    这是一种更灵活更强有力的语言抽象。
-      OOP中，用class关键字表示数据类型；类描述了具有相同特性（数据元素）和行为（功能）的对象集合，一个类实际上就是一个数据类型。(ch01-对象导论)   
+      程序员必须建立起在机器模型（位于“解空间”内，这是你对问题建模的地方，例如计算机）和实际待解问题的模型（位于“问题空间”内，  
+      这是问题存在的地方，例如一项业务）之间的关联。    
+      面向对象方式将问题空间中的元素及其在解空间中的表示称为“对象”。这种思想的实质是：程序可以通过添加新类型的对象使自身适用与  
+      某个特定问题。这是一种更灵活更强有力的语言抽象。  
+      OOP中，用class关键字表示数据类型；类描述了具有相同特性（数据元素）和行为（功能）的对象集合，一个类实际上就是一个数据类型。  
+   [JAVA编程思想（第四版）ch01-对象导论](https://pan.baidu.com/s/1vbHMb3XRXato-jFv34HeQQ "验证码：p4th")     
 ### 面向对象特性
      ***多态的本质*** 
-      前期绑定：编译器将产生对一个具体函数名字的调用，而运行时将这个调用解析到将要被执行的代码的绝对地址。OOP中，程序直到运行时才能确定代码地址
-    当消息发送到一个泛化对象时，使用了后期绑定，编译器确保被调用方法的存在，并对调用参数和返回值致性类型检查（无法提供此类保证的语言被称为是弱类型的），
-    但是并不知道将要执行的确切代码。Java的动态绑定是默认行为（C++通过virtual关键字明确声明某个方法后期绑定）不需要额外关键字实现多态。
-      多态的作用是消除类型之间的耦合关系。多态通过分离做什么和怎么做，从另一个角度实现接口和实现分离（FAQ. 查阅OOP三大特性（ch08-多态））。
-      “封装”通过合并特征和行为来创建新的数据类型。
-      继承允许将对象视为它自己本身的类型或其基类型来加以处理。这种能力极为重要，因为它允许将多种类型（从同一基类导出的）视为同一类型，而同一份代码
-      也就可以毫无差别地运行在这些不同类型之上了。
+      前期绑定：编译器将产生对一个具体函数名字的调用，而运行时将这个调用解析到将要被执行的代码的绝对地址。OOP中，程序直到运行时
+      才能确定代码地址。当消息发送到一个泛化对象时，使用了后期绑定，编译器确保被调用方法的存在，并对调用参数和返回值致性类型检  
+      查（无法提供此类保证的语言被称为是弱类型的），但是并不知道将要执行的确切代码。Java的动态绑定是默认行为（C++通过virtual  
+      关键字明确声明某个方法后期绑定）不需要额外关键字实现多态。  
+      多态的作用是消除类型之间的耦合关系。多态通过分离做什么和怎么做，从另一个角度实现接口和实现分离（FAQ. 查阅OOP三大特  
+      性（ch08-多态））。  
+      “封装”通过合并特征和行为来创建新的数据类型。  
+      继承允许将对象视为它自己本身的类型或其基类型来加以处理。这种能力极为重要，因为它允许将多种类型（从同一基类导出的）视为  
+      同一类型，而同一份代码也就可以毫无差别地运行在这些不同类型之上了。
       多态方法调用根据方法行为的不同来表现类型之间的差别，尽管它们都可以通过同一个基类来调用。
     FAQ. 方法重载：what（表现形式）？why（为什么要重载方法）？who（怎么设计重载方法，如何查找到正确的方法来调用）？
 
 ## 类型信息
-    每当编写并且编译一个新类就会产生一个Class对象，它被保存在一个同名的.class文件中。所有的类都是在对其第一次使用时，动态加载到JVM中的。
-    无论何时，通过获得相应的Class对象的引用可以运行时使用类型信息。
+    每当编写并且编译一个新类就会产生一个Class对象，它被保存在一个同名的.class文件中。所有的类都是在对其第一次使用时，动态
+    加载到JVM中的。无论何时，通过获得相应的Class对象的引用可以运行时使用类型信息。
     为使用类而做的准备工作包含三个步骤：
         加载，类加载器执行。该步骤将查找字节码，并从字节码中创建一个Class对象。
         链接，验证类中的字节码，为静态域分配存储空间，并且如果必需的话，将解析这个类创建的对其他类的所有引用。
@@ -260,11 +239,11 @@ FAQ. 阅读其他主题XPath、xslt、DOM、Java与xml等
    java的泛型基本是在编译器这个层次上实现的。在生成的java字节码中不包含泛型中的类型信息。  
    使用泛型时加上的类型参数，会被编译器在编译时擦除。
    
-   类型擦除指的是通过类型参数合并，将泛型类型实例关联到同一份字节码上。编译器只为泛型类型生成一份字节码，并将其实例关联到这份字节码上。  
-   类型擦除的关键在于从泛型类型中清除类型参数的相关信息，并且再必要的时候添加类型检查和类型转换的方法。  
-        类型擦除可以简单的理解为将泛型java代码转换为普通java代码，只不过编译器更直接点，将泛型java代码直接转换成普通java字节码。  
-        类型擦除的主要过程如下：  
-        1.将所有的泛型参数用其最左边界（最顶级的父类型）类型替换。  
+   类型擦除指的是通过类型参数合并，将泛型类型实例关联到同一份字节码上。编译器只为泛型类型生成一份字节码，并将其实例关联到这份  
+   字节码上。类型擦除的关键在于从泛型类型中清除类型参数的相关信息，并且再必要的时候添加类型检查和类型转换的方法。    
+      类型擦除可以简单的理解为将泛型java代码转换为普通java代码，只不过编译器更直接点，将泛型java代码直接转换成普通java字节码。      
+        类型擦除的主要过程如下：    
+        1.将所有的泛型参数用其最左边界（最顶级的父类型）类型替换。    
         2.移除所有的类型参数。  
    
    ***泛型支持***   

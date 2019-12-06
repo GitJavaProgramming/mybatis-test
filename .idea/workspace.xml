@@ -147,7 +147,7 @@
       <updated>1575441721720</updated>
       <workItem from="1575441724813" duration="8478000" />
       <workItem from="1575538677428" duration="3859000" />
-      <workItem from="1575544612315" duration="27839000" />
+      <workItem from="1575544612315" duration="28311000" />
     </task>
     <task id="LOCAL-00001" summary="第一个mybatis项目&#10;mysql-connector &#10;测试读取文件访问数据库">
       <created>1575446001872</created>
@@ -233,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575628059961</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Java高级特性 反射、泛型、注解和动态代理">
+      <created>1575628167310</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1575628167311</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
