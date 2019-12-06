@@ -1,0 +1,31 @@
+JDK的动态代理依靠接口实现，如果有些类并没有实现接口，则不能使用JDK代理。
+         final Class<?>[] intfs = interfaces.clone();
+         // ......
+        /*
+         * Look up or generate the designated proxy class.
+         */
+        Class<?> cl = getProxyClass0(loader, intfs);
+
+上面代码在Proxy.newProxyInstance中，可以看出实现的接口通过clone浅拷贝（如果是继承类就需要进行深拷贝？等研究cglib源码后再给答案）
+
+/**
+*返回一个指定接口的代理类实例，该接口可以将方法调用指派到指定的调用处理程序。
+*/
+public static Object newProxyInstance(ClassLoader loader,
+                                      Class<?>[] interfaces,
+                                      InvocationHandler h)
+                               throws IllegalArgumentException
+此方法相当于： Proxy.getProxyClass(loader, interfaces).getConstructor(new Class[] { InvocationHandler.class }).newInstance(new Object[] { handler });
+Proxy.newProxyInstance 抛出 IllegalArgumentException，原因与 Proxy.getProxyClass 相同。
+
+参数：
+loader - 定义代理类的类加载器
+interfaces - 代理类要实现的接口列表
+h - 指派方法调用的调用处理程序
+返回：
+一个带有代理类的指定调用处理程序的代理实例，它由指定的类加载器定义，并实现指定的接口
+抛出：
+IllegalArgumentException - 如果违反传递到 getProxyClass 的参数上的任何限制
+NullPointerException - 如果 interfaces 数组参数或其任何元素为 null，或如果调用处理程序 h 为 null
+
+cglib是针对类来实现代理的，他的原理是对指定的目标类生成一个子类，并覆盖其中方法实现增强，但因为采用的是继承，所以不能对final修饰的类进行代理。

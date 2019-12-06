@@ -120,11 +120,11 @@ ATTLIST包含三个部分：ATTLIST关键字 相应元素名 属性列表
 XML Schema 参考手册：  
 > https://www.w3school.com.cn/schema/schema_elements_ref.asp
 
-            XML Schema 是基于 XML 的 DTD 替代者。XML Schema也称为XML框架或XML模式。通过Schema可以描述和规范XML文档的数据模式  
-            和组织结构，规定XML文档中可以包含哪些元素、这些元素拥有哪些子元素及其出现的顺序和次数，还规定每个元素和属性的数据
-            类型。与DTD相比，通过XML Schema可以更好地规范和验证有效的XML文档。  
-            XML Schema总是以独立文档形式存在，其文件扩展名为.xsd。XML Schema文档本身就是一个符合XML规范的、格式良好的XML文  
-            档，该文档通过一套预先定义的XML元素及其属性创建的，正是这些特定的元素和属性规定了XML文档的结构和内容模式。  
+    XML Schema 是基于 XML 的 DTD 替代者。XML Schema也称为XML框架或XML模式。通过Schema可以描述和规范XML文档的数据模式  
+    和组织结构，规定XML文档中可以包含哪些元素、这些元素拥有哪些子元素及其出现的顺序和次数，还规定每个元素和属性的数据
+    类型。与DTD相比，通过XML Schema可以更好地规范和验证有效的XML文档。  
+    XML Schema总是以独立文档形式存在，其文件扩展名为.xsd。XML Schema文档本身就是一个符合XML规范的、格式良好的XML文  
+    档，该文档通过一套预先定义的XML元素及其属性创建的，正是这些特定的元素和属性规定了XML文档的结构和内容模式。  
 
 Schema文档从一个XML文档声明开始，其后的内容是对根元素schema的声明。根据需要，还可以从一个Schema文档中包含或导入其他Schema文档。  
 eg. http://www.springframework.org/schema/beans/spring-beans-4.1.xsd  文档基本框架如下：
@@ -249,7 +249,10 @@ FAQ. 阅读其他主题XPath、xslt、DOM、Java与xml等
         2.移除所有的类型参数。  
    
    ***泛型支持***   
-   为了表达泛型类型声明，JavaSE 5.0在java.lang.reflect包中提供了一个新的接口Type。这个接口包含下列子类型：  
+   为了表达泛型类型声明，JavaSE 5.0在java.lang.reflect包中提供了一个新的接口Type。这个接口包含下列子类型：    
+   ##### JDK动态代理
+   参考代码：package  org.pp.mybatis.foundationsupportlayer.reflector.proxy
+   
 ```java
 GenericArrayType (java.lang.reflect)
    GenericArrayTypeImpl (com.sun.xml.internal.bind.v2.model.nav)

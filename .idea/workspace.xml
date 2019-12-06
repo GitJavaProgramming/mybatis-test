@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2de4050e-80ba-4aa6-9c1f-fe7d161d95b8" name="Default Changelist" comment="readme美化">
+    <list default="true" id="2de4050e-80ba-4aa6-9c1f-fe7d161d95b8" name="Default Changelist" comment="JDK 动态代理实现&#10;添加拦截器List 实现功能呢拦截">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/reflector/proxy/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/reflector/proxy/interceptor/DefaultInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/reflector/proxy/interceptor/Interceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/reflector/proxy/jdk/JdkDynamicProxyHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/reflector/proxy/jdk/JdkProxy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/reflector/proxy/jdk/JdkSubject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/reflector/proxy/jdk/Subject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/reflector/proxy/proxy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/reflector/beans/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/reflector/beans/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/pp/mybatis/MyBatisTestCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/pp/mybatis/MyBatisTestCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/org/pp/mybatis/MyBatisTestCase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/pp/mybatis/MyBatisTestCase.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,24 +60,29 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/parser" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/reflector/proxy/jdk" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\mybatis-test\src\main\java\org\pp\mybatis\foundationsupportlayer\reflector\proxy" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.pp.mybatis" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.pp.mybatis.foundationsupportlayer.reflector.proxy" />
       <recent name="mybatis" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\mybatis-test\src\main\java\org\pp\mybatis\foundationsupportlayer\reflector\proxy\jdk" />
+      <recent name="D:\IdeaProjects\mybatis-test\src\main\java\org\pp\mybatis\foundationsupportlayer\reflector\proxy" />
       <recent name="D:\IdeaProjects\mybatis-test\src\main\java\org\pp\mybatis\foundationsupportlayer\parser" />
       <recent name="D:\IdeaProjects\mybatis-test" />
       <recent name="D:\IdeaProjects\mybatis-test\src\main\resources" />
-      <recent name="D:\IdeaProjects\mybatis-test\src\main\java" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -81,7 +97,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.MyBatisTestCase.testMybatis">
+  <component name="RunManager" selected="Application.Client">
+    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.pp.mybatis.foundationsupportlayer.reflector.proxy.Client" />
+      <module name="mybatis-test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.pp.mybatis.foundationsupportlayer.reflector.proxy.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Person" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.pp.mybatis.foundationsupportlayer.reflector.beans.Person" />
       <module name="mybatis-test" />
@@ -108,6 +137,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MyBatisTestCase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mybatis-test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.pp.mybatis.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.pp.mybatis" />
+      <option name="MAIN_CLASS_NAME" value="org.pp.mybatis.MyBatisTestCase" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MyBatisTestCase.testMybatis" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="mybatis-test" />
       <extension name="coverage">
@@ -126,6 +170,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Client" />
+        <item itemvalue="JUnit.MyBatisTestCase" />
         <item itemvalue="JUnit.MyBatisTestCase.testMybatis" />
         <item itemvalue="Application.Person" />
         <item itemvalue="Application.XPathTest" />
@@ -147,7 +193,7 @@
       <updated>1575441721720</updated>
       <workItem from="1575441724813" duration="8478000" />
       <workItem from="1575538677428" duration="3859000" />
-      <workItem from="1575544612315" duration="28708000" />
+      <workItem from="1575544612315" duration="34564000" />
     </task>
     <task id="LOCAL-00001" summary="第一个mybatis项目&#10;mysql-connector &#10;测试读取文件访问数据库">
       <created>1575446001872</created>
@@ -247,7 +293,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575628657615</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="readme美化">
+      <created>1575629040493</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1575629040493</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

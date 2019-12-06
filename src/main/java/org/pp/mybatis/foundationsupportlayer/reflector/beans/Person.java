@@ -3,7 +3,7 @@ package org.pp.mybatis.foundationsupportlayer.reflector.beans;
 import java.lang.reflect.Constructor;
 
 /**
- *
+ * 反射： 在运行时获取和使用类型信息
  */
 public class Person {
     private String name;
