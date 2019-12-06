@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2de4050e-80ba-4aa6-9c1f-fe7d161d95b8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Annotation.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/reflector/beans/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mybatis-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mybatis-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/pp/mybatis/foundationsupportlayer/parser/XPathTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/pp/mybatis/foundationsupportlayer/parser/XPathTest.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -152,7 +147,7 @@
       <updated>1575441721720</updated>
       <workItem from="1575441724813" duration="8478000" />
       <workItem from="1575538677428" duration="3859000" />
-      <workItem from="1575544612315" duration="27675000" />
+      <workItem from="1575544612315" duration="27839000" />
     </task>
     <task id="LOCAL-00001" summary="第一个mybatis项目&#10;mysql-connector &#10;测试读取文件访问数据库">
       <created>1575446001872</created>
@@ -231,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575543489620</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Java高级特性 反射、泛型、注解和动态代理">
+      <created>1575628059961</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1575628059961</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,6 +264,7 @@
     <MESSAGE value="xml基础知识&#10;编写dtd验证xml" />
     <MESSAGE value="至此Java解析XML模块已经结束&#10; 为xml文档添加XML Schema验证" />
     <MESSAGE value="生成目录" />
-    <option name="LAST_COMMIT_MESSAGE" value="生成目录" />
+    <MESSAGE value="Java高级特性 反射、泛型、注解和动态代理" />
+    <option name="LAST_COMMIT_MESSAGE" value="Java高级特性 反射、泛型、注解和动态代理" />
   </component>
 </project>
