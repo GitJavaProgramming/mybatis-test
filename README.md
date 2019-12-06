@@ -250,8 +250,6 @@ FAQ. 阅读其他主题XPath、xslt、DOM、Java与xml等
    
    ***泛型支持***   
    为了表达泛型类型声明，JavaSE 5.0在java.lang.reflect包中提供了一个新的接口Type。这个接口包含下列子类型：    
-   ##### JDK动态代理
-   参考代码：package  org.pp.mybatis.foundationsupportlayer.reflector.proxy
    
 ```java
 GenericArrayType (java.lang.reflect)
@@ -276,7 +274,10 @@ Class (java.lang)
    ***泛型与数组***  
    泛型擦除会移除参数类型信息，数组必须知道所持有的确切类型，以强制保证类型安全。  
 
-
+   ##### JDK动态代理
+   参考：package   org.pp.mybatis.foundationsupportlayer.reflector.proxy
+   描述文件 proxy.txt  
+   测试类入口： Client.main  
 
 # ***mybatis思维导图***  
 > ![mybatis思维导图](./mybatis整体架构图01.png "mybatis思维导图")  
