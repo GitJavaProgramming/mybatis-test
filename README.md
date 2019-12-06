@@ -1,25 +1,35 @@
 # mybatis-test
  **mybatis源码研究-2019/12/04**
+        
+        从整体到局部，最后再回到整体，从全局把控mybatis各个模块；深挖mybatis所有核心知识点，让你真正掌握mybatis核心设计思想；
  
+   奉上[详细书签版mybatis技术内幕](#xml基础知识名称空间文档验证文档处理)
 导航目录
 =================
 
    * [mybatis-test](#mybatis-test)
-   * [XML基础知识（名称空间/文档验证/文档处理）](#xml基础知识名称空间文档验证文档处理)
-      * [XML](#xml)
-      * [XML名称空间](#xml名称空间)
-      * [DTD(Document Type Definition)](#dtddocument-type-definition)
-         * [系统标识符：](#系统标识符)
-         * [公共标识符：](#公共标识符)
-         * [DTD详述](#dtd详述)
-            * [元素声明](#元素声明)
-               * [一个元素内容模型定义了可允许的元素内容。](#一个元素内容模型定义了可允许的元素内容)
-               * [基数是指这个元素在内容模型中出现的次数。DTD有4个基数指示符。](#基数是指这个元素在内容模型中出现的次数dtd有4个基数指示符)
-            * [属性声明](#属性声明)
-      * [schema](#schema)
+      * [XML基础知识（名称空间/文档验证/文档处理）](#xml基础知识名称空间文档验证文档处理)
+         * [XML](#xml)
+         * [XML名称空间](#xml名称空间)
+         * [DTD(Document Type Definition)](#dtddocument-type-definition)
+            * [系统标识符：](#系统标识符)
+            * [公共标识符：](#公共标识符)
+            * [DTD详述](#dtd详述)
+               * [元素声明](#元素声明)
+                  * [一个元素内容模型定义了可允许的元素内容。](#一个元素内容模型定义了可允许的元素内容)
+                  * [基数是指这个元素在内容模型中出现的次数。DTD有4个基数指示符。](#基数是指这个元素在内容模型中出现的次数dtd有4个基数指示符)
+               * [属性声明](#属性声明)
+         * [schema](#schema)
+      * [Java高级特性](#java高级特性)
+         * [再谈对象](#再谈对象)
+            * [问题空间与解空间](#问题空间与解空间)
+            * [面向对象特性](#面向对象特性)
+         * [类型信息](#类型信息)
+            * [反射操作---泛型、注解和动态代理](#反射操作---泛型注解和动态代理)
+               * [注解：](#注解)
+               * [泛型：](#泛型)
       * [<em><strong>mybatis思维导图</strong></em>](#mybatis思维导图)
       * [<em><strong>主要参考资料：</strong></em>](#主要参考资料)
-
 
 ****
 ***mybatis整体架构***  
@@ -102,6 +112,8 @@ ATTLIST包含三个部分：ATTLIST关键字 相应元素名 属性列表
 ```
 上面例子指出book元素包含year属性，CDATA用来定义属性类型，#IMPLIED指出该属性不是必须的。  
 `ref:  https://www.w3school.com.cn/dtd/dtd_attributes.asp`
+       http://mybatis.org/dtd/mybatis-3-config.dtd    
+       http://mybatis.org/dtd/mybatis-3-mapper.dtd    
 
 ## schema
 XML Schema 参考手册：  
@@ -205,12 +217,89 @@ FAQ. 自行比较DTD与XML schema
 FAQ. 阅读其他主题XPath、xslt、DOM、Java与xml等  
 ****
 
-## ***mybatis思维导图***  
+# Java高级特性
+[JAVA编程思想（第四版）ch01-对象导论](https://pan.baidu.com/s/1vbHMb3XRXato-jFv34HeQQ "验证码：p4th")  
+## 再谈对象
+### 问题空间与解空间  
+      程序员必须建立起在机器模型（位于“解空间”内，这是你对问题建模的地方，例如计算机）和实际待解问题的模型（位于“问题空间”内，这是问题存    
+    在的地方，例如一项业务）之间的关联。  
+      面向对象方式将问题空间中的元素及其在解空间中的表示称为“对象”。这种思想的实质是：程序可以通过添加新类型的对象使自身适用与某个特定问题。
+    这是一种更灵活更强有力的语言抽象。
+      OOP中，用class关键字表示数据类型；类描述了具有相同特性（数据元素）和行为（功能）的对象集合，一个类实际上就是一个数据类型。(ch01-对象导论)   
+### 面向对象特性
+     ***多态的本质*** 
+      前期绑定：编译器将产生对一个具体函数名字的调用，而运行时将这个调用解析到将要被执行的代码的绝对地址。OOP中，程序直到运行时才能确定代码地址
+    当消息发送到一个泛化对象时，使用了后期绑定，编译器确保被调用方法的存在，并对调用参数和返回值致性类型检查（无法提供此类保证的语言被称为是弱类型的），
+    但是并不知道将要执行的确切代码。Java的动态绑定是默认行为（C++通过virtual关键字明确声明某个方法后期绑定）不需要额外关键字实现多态。
+      多态的作用是消除类型之间的耦合关系。多态通过分离做什么和怎么做，从另一个角度实现接口和实现分离（FAQ. 查阅OOP三大特性（ch08-多态））。
+      “封装”通过合并特征和行为来创建新的数据类型。
+      继承允许将对象视为它自己本身的类型或其基类型来加以处理。这种能力极为重要，因为它允许将多种类型（从同一基类导出的）视为同一类型，而同一份代码
+      也就可以毫无差别地运行在这些不同类型之上了。
+      多态方法调用根据方法行为的不同来表现类型之间的差别，尽管它们都可以通过同一个基类来调用。
+    FAQ. 方法重载：what（表现形式）？why（为什么要重载方法）？who（怎么设计重载方法，如何查找到正确的方法来调用）？
+
+## 类型信息
+    每当编写并且编译一个新类就会产生一个Class对象，它被保存在一个同名的.class文件中。所有的类都是在对其第一次使用时，动态加载到JVM中的。
+    无论何时，通过获得相应的Class对象的引用可以运行时使用类型信息。
+    为使用类而做的准备工作包含三个步骤：
+        加载，类加载器执行。该步骤将查找字节码，并从字节码中创建一个Class对象。
+        链接，验证类中的字节码，为静态域分配存储空间，并且如果必需的话，将解析这个类创建的对其他类的所有引用。
+        初始化，如果该类具有超类，则对其初始化，执行静态初始化器和静态初始化块。（类初始化是线程安全的）
+
+### 反射操作---泛型、注解和动态代理
+#### 注解：
+   一种标记，用于对java说明，注释。  
+   Java5.0定义了4个标准的meta-annotation类型，它们被用来提供对其它 annotation类型作说明。Java5.0定义的元注解：  
+   @Target,@Retention,@Documented,@Inherited
+   Java语言对注解的支持：  
+   ![Annotation](./Annotation.png "Annotation uml")
+   
+####   泛型：
+    泛型是jdk1.5引入的新特性，允许在定义类和接口的时候使用类型参数。
+   ***类型擦除***   
+   java的泛型基本是在编译器这个层次上实现的。在生成的java字节码中不包含泛型中的类型信息。  
+   使用泛型时加上的类型参数，会被编译器在编译时擦除。
+   
+   类型擦除指的是通过类型参数合并，将泛型类型实例关联到同一份字节码上。编译器只为泛型类型生成一份字节码，并将其实例关联到这份字节码上。  
+   类型擦除的关键在于从泛型类型中清除类型参数的相关信息，并且再必要的时候添加类型检查和类型转换的方法。  
+        类型擦除可以简单的理解为将泛型java代码转换为普通java代码，只不过编译器更直接点，将泛型java代码直接转换成普通java字节码。  
+        类型擦除的主要过程如下：  
+        1.将所有的泛型参数用其最左边界（最顶级的父类型）类型替换。  
+        2.移除所有的类型参数。  
+   
+   ***泛型支持***   
+   为了表达泛型类型声明，JavaSE 5.0在java.lang.reflect包中提供了一个新的接口Type。这个接口包含下列子类型：  
+```java
+GenericArrayType (java.lang.reflect)
+   GenericArrayTypeImpl (com.sun.xml.internal.bind.v2.model.nav)
+   GenericArrayTypeImpl (sun.reflect.generics.reflectiveObjects)
+   GenericArrayTypeImpl in TypeParameterResolver (org.apache.ibatis.reflection)
+ParameterizedType (java.lang.reflect)
+   ParameterizedTypeImpl in TypeParameterResolver (org.apache.ibatis.reflection)
+   ParameterizedTypeImpl (com.sun.xml.internal.bind.v2.model.nav)
+   ParameterizedTypeImpl (com.alibaba.fastjson.util)
+   ParameterizedTypeImpl (sun.reflect.generics.reflectiveObjects)
+WildcardType (java.lang.reflect)
+   WildcardTypeImpl (sun.reflect.generics.reflectiveObjects)
+   WildcardTypeImpl in TypeParameterResolver (org.apache.ibatis.reflection)
+   WildcardTypeImpl (com.sun.xml.internal.bind.v2.model.nav)
+   WildcardTypeImpl (com.sun.beans)
+TypeVariable (java.lang.reflect)
+   TypeVariableImpl (sun.reflect.generics.reflectiveObjects)
+Class (java.lang)
+```
+   
+   ***泛型与数组***  
+   泛型擦除会移除参数类型信息，数组必须知道所持有的确切类型，以强制保证类型安全。  
+
+
+
+# ***mybatis思维导图***  
 > ![mybatis思维导图](./mybatis整体架构图01.png "mybatis思维导图")  
 
-## ***主要参考资料：***  
+# ***主要参考资料：***  
 > - [x] [MyBatis技术内幕  徐郡明  2017/07](https://pan.baidu.com/s/1-JGtoXADDjQRw5v51np4vA "提取码是fcak")  
-> - [x] [MyBatis 3 源码深度解析  江荣波  2019/10](https://pan.baidu.com/s/1-JGtoXADDjQRw5v51np4vA "最新出版没有电子书")  
+> - [x] [MyBatis 3 源码深度解析  江荣波  2019/10]     
 > - [x] [MyBatis从入门到精通  刘增辉  2017/07](https://pan.baidu.com/s/1-JGtoXADDjQRw5v51np4vA "提取码是fcak")   
 > - [x] [深入浅出MyBatis 技术原理与实战  杨开振  2016/09](https://pan.baidu.com/s/1-JGtoXADDjQRw5v51np4vA "提取码是fcak")  
 > - [x] [xml](https://www.w3school.com.cn/xml/index.asp "W3CSchool") 
@@ -220,6 +309,13 @@ FAQ. 阅读其他主题XPath、xslt、DOM、Java与xml等
 > - [x] [XML入门经典(第5版)  第I部分-->第III部分](https://pan.baidu.com/s/1M3HSfL3VQgpVvHa_ekUjvQ "提取码是9mfm")  
 > - [x] [疯狂XML讲义](https://pan.baidu.com/s/1M3HSfL3VQgpVvHa_ekUjvQ "提取码是9mfm")  
 > - [x] [XML揭秘 入门·应用·精通 Michael Morrison 陆新年](https://pan.baidu.com/s/1M3HSfL3VQgpVvHa_ekUjvQ "提取码是9mfm")  
-> - [x] [《XML简明教程》2009年清华大学出版社出版 张欣毅](https://www.baidu.com "xml基础简明教程，没找到电子版。")  
+> - [x] [《XML简明教程》2009年清华大学出版社出版 张欣毅]  
 > - [x] [Java与XML](https://www.baidu.com "java访问xml")  
+> - [x] [Java编程思想](https://pan.baidu.com/s/1Tz4rpgEwFg6Rcq9UqWTNOw "m912")  
+> - [x] [Java核心技术I/II卷](https://pan.baidu.com/s/1Tz4rpgEwFg6Rcq9UqWTNOw "m912")  
+> - [x] [C++程序设计教程（第二版） 钱能]   
+> - [x] [深入理解Java虚拟机 JVM高级特性与最佳实践 第2版](https://pan.baidu.com/s/17mGl_Xu-dgWITfoD8V90HA "3tv9")  
+> - [x] [Java深度历险](https://pan.baidu.com/s/1FTxaBmZPaiHKA4MPEF9p5g "rx5d")  
+> - [x] [Java语言规范 基于Java SE 8](https://pan.baidu.com/s/1OSxrl5dZOvEHddAG4exNEA "wl1r")  
+> - [x] [Java虚拟机规范  Java SE 8版](https://pan.baidu.com/s/14PjId4EJOHhyPxqQITaUTA "fvgs")  
 
