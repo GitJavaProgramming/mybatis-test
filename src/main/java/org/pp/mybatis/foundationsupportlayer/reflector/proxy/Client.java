@@ -1,8 +1,6 @@
 package org.pp.mybatis.foundationsupportlayer.reflector.proxy;
 
-import org.pp.mybatis.foundationsupportlayer.reflector.proxy.jdk.JdkProxy;
-import org.pp.mybatis.foundationsupportlayer.reflector.proxy.jdk.JdkSubject;
-import org.pp.mybatis.foundationsupportlayer.reflector.proxy.jdk.Subject;
+import org.pp.mybatis.foundationsupportlayer.reflector.proxy.jdk.*;
 
 public class Client {
     public static void main(String[] args) {
@@ -14,5 +12,9 @@ public class Client {
         proxy.getStr();
 
         System.out.println("======================================================");
+
+        Subject proxy2 = JdkInterfaceProxy.newInstance(Subject.class);
+        proxy2.doSomething();
+        proxy2.getStr();
     }
 }

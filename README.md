@@ -1,8 +1,10 @@
 # mybatis-test
  
- mybatis源码研究-2019/12/04   
+**mybatis源码研究-2019/12/04**   
  教你一周精通mybatis（调试版本：3.5.3）
- 从整体到局部，最后再回到整体，从全局把控mybatis各个模块；     
+ 从整体到局部，最后再回到整体，从全局把控mybatis各个模块；  
+ 1.自底向上分析法，先对基础控件描述并阐述相关实现原理，带着问题一步一步完成封装，最终形成整体。     
+ 2.从应用入手，自顶向下，挖掘实现机制，将具体模块一步一步细节拆解，最终形成深入全面的认识。       
  深挖mybatis所有核心知识点，真正掌握mybatis核心设计思想；    
  赠送各种流程图，思维导图。  
  
@@ -13,7 +15,7 @@
 
    * [mybatis-test](#mybatis-test)
    * [导航目录](#导航目录)
-   * [一个例子](#一个例子)
+   * [开个头](#开个头)
    * [XML基础知识（名称空间/文档验证/文档处理）](#xml基础知识名称空间文档验证文档处理)
       * [XML](#xml)
       * [XML名称空间](#xml名称空间)
@@ -37,6 +39,7 @@
             * [JDK动态代理](#jdk动态代理)
    * [从头开始](#从头开始)
       * [mybatis初始化流程](#mybatis初始化流程)
+      * [SqlSession运行原理解析](#SqlSession运行原理解析)
    * [<em><strong>mybatis思维导图</strong></em>](#mybatis思维导图)
    * [<em><strong>主要参考资料：</strong></em>](#主要参考资料)
 
@@ -47,9 +50,9 @@ mybatis整体架构分为三层，分别是基础支持层、核心处理层和�
 > ![mybatis整体架构图](./mybatis整体架构图02.png "mybatis整体架构图")    
 
 ****
-# 一个例子
+# 开个头
 参考项目代码~~~  
-[详细标签版-MyBatis技术内幕](https://pan.baidu.com/s/1-JGtoXADDjQRw5v51np4vA "提取码是fcak")  
+[详细书签版-MyBatis技术内幕](https://pan.baidu.com/s/1-JGtoXADDjQRw5v51np4vA "提取码是fcak")  
 
 # XML基础知识（名称空间/文档验证/文档处理）
 
@@ -299,8 +302,29 @@ mybatis入口： SqlSessionFactoryBuilder读取xml文档，解析并构造Config
 sqlSessionFactory可以很轻易的拿到sqlSession，sqlSession提供系列操作方法,    
 sqlSession Javadoc：Through this interface you can execute commands, get mappers and manage transactions.。  
 ## mybatis初始化流程   
-mybatis初始化之后Configuration、sqlSessionFactory均已构造完成。  
-> ![mybatis初始化流程](./mybatis初始化流程.png "mybatis初始化流程图")   
+mybatis初始化之后Configuration、sqlSessionFactory均已构造完成。   
+
+MapperRegistry中维护了实际类型（*Mapper接口,由mapper元素的namespace属性指定）和代理类的map映射    
+提供两个泛型方法：      
+public <T> void addMapper(Class<T> type)中传入的Class将会被MapperProxyFactory代理，代理处理器是MapperProxy    
+public <T> T getMapper(Class<T> type, SqlSession sqlSession) 返回代理类实例（与被代理类是同一类型）  
+  
+![mybatis初始化流程](./mybatis初始化流程.png "mybatis初始化流程图")    
+
+## SqlSession运行原理解析
+
+所有配置解析完成之后，mapper映射文件中，一个SQL元素节点被封装成一个MappedStatement对象，在SqlSession中注入全局配置单例    
+Configuration通过元素id、MappedStatement映射可以找到对应MappedStatement对象，它包含了具体执行的sql字符串。      
+MapperProxyFactory仅仅只是代理方法，由于接口不提供实现，所以需要自己实现方法处理逻辑，并提供返回值。   
+`final MapperMethod mapperMethod = cachedMapperMethod(method);    
+    return mapperMethod.execute(sqlSession, args); `    
+
+具体实现在SqlSession中，SqlSession用到了缓存的MappedStatement执行真实的sql字符串；这是接口和实现分离思想的体现。   
+同时这里用到了命令模式。    
+
+    
+
+
 
 # ***mybatis思维导图***  
 > ![mybatis思维导图](./mybatis整体架构图01.png "mybatis思维导图")  
