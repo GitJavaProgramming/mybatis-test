@@ -1,7 +1,11 @@
 # mybatis-test
- **mybatis源码研究-2019/12/04**
-        
-        从整体到局部，最后再回到整体，从全局把控mybatis各个模块；深挖mybatis所有核心知识点，让你真正掌握mybatis核心设计思想；
+ 
+ mybatis源码研究-2019/12/04   
+ 教你一周精通mybatis（调试版本：3.5.3）
+ 从整体到局部，最后再回到整体，从全局把控mybatis各个模块；     
+ 深挖mybatis所有核心知识点，真正掌握mybatis核心设计思想；    
+ 赠送各种流程图，思维导图。  
+ 
  
    
 导航目录
@@ -9,6 +13,7 @@
 
    * [mybatis-test](#mybatis-test)
    * [导航目录](#导航目录)
+   * [一个例子](#一个例子)
    * [XML基础知识（名称空间/文档验证/文档处理）](#xml基础知识名称空间文档验证文档处理)
       * [XML](#xml)
       * [XML名称空间](#xml名称空间)
@@ -30,6 +35,8 @@
             * [注解：](#注解)
             * [泛型：](#泛型)
             * [JDK动态代理](#jdk动态代理)
+   * [从头开始](#从头开始)
+      * [mybatis初始化流程](#mybatis初始化流程)
    * [<em><strong>mybatis思维导图</strong></em>](#mybatis思维导图)
    * [<em><strong>主要参考资料：</strong></em>](#主要参考资料)
 
@@ -40,6 +47,10 @@ mybatis整体架构分为三层，分别是基础支持层、核心处理层和�
 > ![mybatis整体架构图](./mybatis整体架构图02.png "mybatis整体架构图")    
 
 ****
+# 一个例子
+参考项目代码~~~  
+[详细标签版-MyBatis技术内幕](https://pan.baidu.com/s/1-JGtoXADDjQRw5v51np4vA "提取码是fcak")  
+
 # XML基础知识（名称空间/文档验证/文档处理）
 
 ## XML
@@ -277,9 +288,19 @@ Class (java.lang)
    泛型擦除会移除参数类型信息，数组必须知道所持有的确切类型，以强制保证类型安全。  
 
 #### JDK动态代理
-   参考：package   org.pp.mybatis.foundationsupportlayer.reflector.proxy
-   描述文件 proxy.txt  
-   测试类入口： Client.main  
+   参考：package   org.pp.mybatis.foundationsupportlayer.reflector.proxy   
+   描述文件 proxy.txt    
+   测试类入口： Client.main    
+
+关于模拟spring IOC请参考我的另一个repo：https://github.com/GitJavaProgramming/JavaAdvance/tree/master/src/reflection
+
+# 从头开始
+mybatis入口： SqlSessionFactoryBuilder读取xml文档，解析并构造Configuration，根据Configuration构造sqlSessionFactory  
+sqlSessionFactory可以很轻易的拿到sqlSession，sqlSession提供系列操作方法,    
+sqlSession Javadoc：Through this interface you can execute commands, get mappers and manage transactions.。  
+## mybatis初始化流程   
+mybatis初始化之后Configuration、sqlSessionFactory均已构造完成。  
+> ![mybatis初始化流程](./mybatis初始化流程.png "mybatis初始化流程图")   
 
 # ***mybatis思维导图***  
 > ![mybatis思维导图](./mybatis整体架构图01.png "mybatis思维导图")  
@@ -288,7 +309,7 @@ Class (java.lang)
 > - [x] [MyBatis技术内幕  徐郡明  2017/07](https://pan.baidu.com/s/1-JGtoXADDjQRw5v51np4vA "提取码是fcak")  
 > - [x] [MyBatis 3 源码深度解析  江荣波  2019/10]     
 > - [x] [MyBatis从入门到精通  刘增辉  2017/07](https://pan.baidu.com/s/1-JGtoXADDjQRw5v51np4vA "提取码是fcak")   
-> - [x] [深入浅出MyBatis 技术原理与实战  杨开振  2016/09](https://pan.baidu.com/s/1-JGtoXADDjQRw5v51np4vA "提取码是fcak")  
+> - [x] [深入浅出MyBatis 技术原理与实战 杨开振 2016/09](https://pan.baidu.com/s/1-JGtoXADDjQRw5v51np4vA "提取码是fcak")  
 > - [x] [xml](https://www.w3school.com.cn/xml/index.asp "W3CSchool") 
 > - [x] [dtd](https://www.w3school.com.cn/dtd/dtd_entities.asp "W3CSchool") 
 > - [x] [schema](https://www.w3school.com.cn/schema/index.asp "W3CSchool") 
