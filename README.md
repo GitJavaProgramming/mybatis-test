@@ -51,8 +51,19 @@ mybatis整体架构分为三层，分别是基础支持层、核心处理层和�
 
 ****
 # 开个头
-参考项目代码~~~  
-[详细书签版-MyBatis技术内幕](https://pan.baidu.com/s/1-JGtoXADDjQRw5v51np4vA "提取码是fcak")  
+参考项目代码~~~    
+## 基本结构：  
+
+    全局配置文件   mybatis-config.xml
+    映射配置文件   UserMapper.xml
+    方法接口      UserMapper
+    结果集/实体   UserEntiry  
+
+## 几个问题：    
+  1. 读写配置文件，如何封装，提取配置的SQL语句  Configuration MapperProxy MappedStatement  
+  2. 接口在哪里实现，怎么实现，SQL如何执行 SqlSession Executor TypeHandler      
+  3. 结果集映射返回期望的Java类型 ResultSetHandler  
+  4. 对扩展开放   plugins  
 
 # XML基础知识（名称空间/文档验证/文档处理）
 
@@ -299,8 +310,7 @@ Class (java.lang)
 
 # 从头开始
 mybatis入口： SqlSessionFactoryBuilder读取xml文档，解析并构造Configuration，根据Configuration构造sqlSessionFactory  
-sqlSessionFactory可以很轻易的拿到sqlSession，sqlSession提供系列操作方法,    
-sqlSession Javadoc：Through this interface you can execute commands, get mappers and manage transactions.。  
+sqlSessionFactory可以很轻易的拿到sqlSession，sqlSession提供系列操作方法,     
 ## mybatis初始化流程   
 mybatis初始化之后Configuration、sqlSessionFactory均已构造完成。   
 
@@ -319,10 +329,77 @@ MapperProxyFactory仅仅只是代理方法，由于接口不提供实现，所�
 `final MapperMethod mapperMethod = cachedMapperMethod(method);    
     return mapperMethod.execute(sqlSession, args); `    
 
-具体实现在SqlSession中，SqlSession用到了缓存的MappedStatement执行真实的sql字符串；这是接口和实现分离思想的体现。   
-同时这里用到了命令模式。    
+具体实现在SqlSession中，SqlSession用到了缓存的MappedStatement执行真实的sql字符串；这是接口和实现分离思想的体现。    
+同时这里用到了命令模式。
+sqlSession javadoc：Through this interface you can execute commands, get mappers and manage transactions.。     
+SqlSession接口对JDBC封装通过Executor接口实现，SqlSession类型负责提供高层对外访问接口。        
+### Executor  
+Executor Class Diagram：  
+![Executor Class Diagram](./Executor.png "Executor Class Diagram")    
 
-    
+#### BaseExecutor  
+BaseExecutor的基本实现提供内置的一级缓存管理和事务管理：    
+##### 一级缓存
+缓存由Cache接口定义，一级缓存是SqlSession内部缓存，Executor中localCache，localOutputParameterCache表示一级缓存：  
+```java
+/**
+*  为每个namespace提供缓存一个实例  
+*  缓存实现必须提供字符串（被定义为缓存id属性，提供getter）作为构造参数    
+*/
+public interface Cache {
+  String getId();
+  void putObject(Object key/*{@link CacheKey}*/, Object value);
+  Object getObject(Object key);
+  Object removeObject(Object key);
+  void clear();
+  int getSize();
+  default ReadWriteLock getReadWriteLock() {
+    return null;
+  }
+}
+```
+mybatis提供很多Cache实现，PerpetualCache提供基本实现，Cache装饰器类在org.apache.ibatis.cache.decorators包下面。     
+![cache-module](./cache-module.png "cache-module")  
+如何设计CacheKey，提供全局唯一的key：从上往下找config->mapper->statement(sql, args)   
+在Executor.createCacheKey中还用到了RowBounds（实现通用分页，个人感觉方法设计冗余，提供插件？）的相关属性offset，limit  
+对于嵌套查询，BaseExecutor实现提供一个延迟加载队列，在query()方法执行时，会查询该队列并加载命中的缓存。  
+（参考源码，mybatis 3.5.3在这里有几个issue）： 
+mybatis issues列表： https://github.com/mybatis/mybatis-3/issues   
+        
+        例如 #482 https://github.com/mybatis/mybatis-3/issues/482
+        这个问题是一个字符编码问题，描述以前的NStringHandler不支持国家字符集类型数据~~~
+            Java String字符串类型与JdbcType转换  
+              NVARCHAR(Types.NVARCHAR), // JDK6
+              NCHAR(Types.NCHAR), // JDK6
+              NCLOB(Types.NCLOB), // JDK6
+            具体转换的类型会根据参数字符串长度和驱动定义的NVARCHAR值来确定
+        TypeHandler完成单个参数/列值的类型转换
+        NStringTypeHandler会在TypeHandlerRegistry中注册，这是已经修复问题了吧，注释没删掉吗???
+        FAQ. 自行查阅关于char varchar NCHAR NVARCHAR 区别
+```java
+if (queryStack == 0) {
+      for (DeferredLoad deferredLoad : deferredLoads) {
+        deferredLoad.load();
+      }
+      // issue #601
+      deferredLoads.clear();
+      if (configuration.getLocalCacheScope() == LocalCacheScope.STATEMENT) {
+        // issue #482
+        clearLocalCache();
+      }
+    }
+```
+这里不再详述，读者可以结合JDBC自身情况来设计一个查询缓存，Cache接口已为你定义好了...    
+
+##### 事务管理
+Mybatis定义Transaction事务操作接口，它有两个实现JdbcTranscation、ManagedTransaction；  
+
+#### sql操作具体实现
+
+#### CachingExecutor 二级缓存
+
+二级缓存是事务级别缓存，是一个全局缓存，被所有SqlSession(ref -> sqlSession javadoc)共享。      
+CachingExecutor通过装饰模式组合Executor添加新功能，提供二级缓存功能。当然Cache的线程安全由自身保证。    
 
 
 
@@ -343,7 +420,7 @@ MapperProxyFactory仅仅只是代理方法，由于接口不提供实现，所�
 > - [x] [XML揭秘 入门·应用·精通 Michael Morrison 陆新年](https://pan.baidu.com/s/1M3HSfL3VQgpVvHa_ekUjvQ "提取码是9mfm")  
 > - [x] [《XML简明教程》2009年清华大学出版社出版 张欣毅]  
 > - [x] [Java与XML](https://www.baidu.com "java访问xml")  
-> - [x] [Java编程思想](https://pan.baidu.com/s/1Tz4rpgEwFg6Rcq9UqWTNOw "m912")  
+> - [x] [Java编程思想 第四版](https://pan.baidu.com/s/1Tz4rpgEwFg6Rcq9UqWTNOw "m912")  
 > - [x] [Java核心技术I/II卷](https://pan.baidu.com/s/1Tz4rpgEwFg6Rcq9UqWTNOw "m912")  
 > - [x] [C++程序设计教程（第二版） 钱能]   
 > - [x] [深入理解Java虚拟机 JVM高级特性与最佳实践 第2版](https://pan.baidu.com/s/17mGl_Xu-dgWITfoD8V90HA "3tv9")  

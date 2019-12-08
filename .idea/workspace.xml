@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2de4050e-80ba-4aa6-9c1f-fe7d161d95b8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/reflector/proxy/jdk/JdkInterfaceDynamicProxyHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/reflector/proxy/jdk/JdkInterfaceProxy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/reflector/proxy/jdk/NAnnotation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Executor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cache-module.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/reflector/proxy/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/reflector/proxy/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/reflector/proxy/jdk/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/reflector/proxy/jdk/Subject.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,22 +73,22 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\IdeaProjects\mybatis-test\src\main\java\org\pp\mybatis\foundationsupportlayer\reflector\proxy" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.pp.mybatis" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="org.pp.mybatis.foundationsupportlayer.reflector.proxy.jdk" />
-      <recent name="org.pp.mybatis.foundationsupportlayer.reflector.proxy" />
-      <recent name="mybatis" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\IdeaProjects\mybatis-test" />
       <recent name="D:\IdeaProjects\mybatis-test\src\main\java\org\pp" />
       <recent name="D:\IdeaProjects\mybatis-test\src\main\java\org\pp\mybatis\foundationsupportlayer\reflector" />
       <recent name="D:\IdeaProjects\mybatis-test\src\main\java\org\pp\mybatis\foundationsupportlayer\reflector\proxy\jdk" />
+      <recent name="D:\IdeaProjects\mybatis-test\src\main\java\org\pp\mybatis\foundationsupportlayer\reflector\proxy" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.pp.mybatis.foundationsupportlayer.reflector.proxy.jdk" />
+      <recent name="org.pp.mybatis.foundationsupportlayer.reflector.proxy" />
+      <recent name="mybatis" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\IdeaProjects\mybatis-test\src\main\java\org\pp\mybatis\foundationsupportlayer\reflector\proxy" />
     </key>
   </component>
@@ -203,7 +200,9 @@
       <updated>1575441721720</updated>
       <workItem from="1575441724813" duration="8478000" />
       <workItem from="1575538677428" duration="3859000" />
-      <workItem from="1575544612315" duration="70566000" />
+      <workItem from="1575544612315" duration="71290000" />
+      <workItem from="1575716307947" duration="4275000" />
+      <workItem from="1575766045450" duration="18945000" />
     </task>
     <task id="LOCAL-00001" summary="第一个mybatis项目&#10;mysql-connector &#10;测试读取文件访问数据库">
       <created>1575446001872</created>
@@ -338,7 +337,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575688902585</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="jdk动态代理  代理接口方法  自定义实现逻辑-自定义注解使用&#10;SqlSession执行原理初步解析">
+      <created>1575713582736</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1575713582736</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -373,6 +379,7 @@
     <MESSAGE value="JDK 动态代理实现&#10;添加拦截器List 实现功能呢拦截" />
     <MESSAGE value="生成目录" />
     <MESSAGE value="反射api操作注解示例&#10;mybatis流程详解" />
-    <option name="LAST_COMMIT_MESSAGE" value="反射api操作注解示例&#10;mybatis流程详解" />
+    <MESSAGE value="jdk动态代理  代理接口方法  自定义实现逻辑-自定义注解使用&#10;SqlSession执行原理初步解析" />
+    <option name="LAST_COMMIT_MESSAGE" value="jdk动态代理  代理接口方法  自定义实现逻辑-自定义注解使用&#10;SqlSession执行原理初步解析" />
   </component>
 </project>
