@@ -2,7 +2,7 @@ package org.pp.mybatis.foundationsupportlayer.reflector.proxy.jdk;
 
 public interface Subject {
 
-    @NAnnotation("你好")
+    @Select("select name from user")
     void doSomething();
 
     void getStr();

@@ -1,11 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2de4050e-80ba-4aa6-9c1f-fe7d161d95b8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Executor.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cache-module.png" afterDir="false" />
+    <list default="true" id="2de4050e-80ba-4aa6-9c1f-fe7d161d95b8" name="Default Changelist" comment="加入JDBC规范&#10;接口代理和jdbc操作的连接小例子">
+      <change afterPath="$PROJECT_DIR$/jdbc4.0-fr-spec.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jdbc4.3-fr-spec.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/jdbc/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/jdbc/ConfigUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/jdbc/cases/prepare/BaseExecutor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/jdbc/cases/prepare/Environment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/jdbc/cases/prepare/ExecutorFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/jdbc/cases/prepare/JdbcTransaction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/jdbc/cases/prepare/SimpleExecutor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/jdbc/cases/prepare/TransactionIsolationLevel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/jdbc/read" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/reflector/proxy/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/reflector/proxy/jdk/JdkInterfaceDynamicProxyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/reflector/proxy/jdk/JdkInterfaceDynamicProxyHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/reflector/proxy/jdk/NAnnotation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/reflector/proxy/jdk/Select.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/reflector/proxy/jdk/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/reflector/proxy/jdk/Subject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/pp/mybatis/foundationsupportlayer/reflector/proxy/Client.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/pp/mybatis/foundationsupportlayer/reflector/proxy/jdk/JdkInterfaceDynamicProxyHandler$Holder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/pp/mybatis/foundationsupportlayer/reflector/proxy/jdk/JdkInterfaceDynamicProxyHandler$Holder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/pp/mybatis/foundationsupportlayer/reflector/proxy/jdk/JdkInterfaceDynamicProxyHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/pp/mybatis/foundationsupportlayer/reflector/proxy/jdk/JdkInterfaceDynamicProxyHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/pp/mybatis/foundationsupportlayer/reflector/proxy/jdk/NAnnotation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/pp/mybatis/foundationsupportlayer/reflector/proxy/jdk/Subject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/pp/mybatis/foundationsupportlayer/reflector/proxy/jdk/Subject.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,8 +54,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="AnnotationType" />
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -74,6 +94,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.pp" />
       <recent name="org.pp.mybatis" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -106,11 +127,24 @@
   </component>
   <component name="RunManager" selected="Application.Client">
     <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.pp.mybatis.foundationsupportlayer.reflector.proxy.Client" />
+      <option name="MAIN_CLASS_NAME" value="org.pp.mybatis.foundationsupportlayer.Client" />
       <module name="mybatis-test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.pp.mybatis.foundationsupportlayer.reflector.proxy.*" />
+          <option name="PATTERN" value="org.pp.mybatis.foundationsupportlayer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.pp.mybatis.foundationsupportlayer.jdbc.Client" />
+      <module name="mybatis-test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.pp.mybatis.foundationsupportlayer.jdbc.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -124,19 +158,6 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.pp.mybatis.foundationsupportlayer.reflector.beans.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="XPathTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.pp.mybatis.foundationsupportlayer.parser.XPathTest" />
-      <module name="mybatis-test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.pp.mybatis.foundationsupportlayer.parser.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -178,14 +199,15 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Client" />
+        <item itemvalue="Application.Client (1)" />
         <item itemvalue="JUnit.MyBatisTestCase" />
         <item itemvalue="JUnit.MyBatisTestCase.testMybatis" />
         <item itemvalue="Application.Person" />
-        <item itemvalue="Application.XPathTest" />
       </list>
     </recent_temporary>
   </component>
   <component name="StructureViewFactory">
+    <option name="AUTOSCROLL_MODE" value="false" />
     <option name="ACTIVE_ACTIONS" value=",ALPHA_COMPARATOR,SHOW_FIELDS,SHOW_PROPERTIES" />
   </component>
   <component name="SvnConfiguration">
@@ -202,7 +224,7 @@
       <workItem from="1575538677428" duration="3859000" />
       <workItem from="1575544612315" duration="71290000" />
       <workItem from="1575716307947" duration="4275000" />
-      <workItem from="1575766045450" duration="18945000" />
+      <workItem from="1575766045450" duration="35320000" />
     </task>
     <task id="LOCAL-00001" summary="第一个mybatis项目&#10;mysql-connector &#10;测试读取文件访问数据库">
       <created>1575446001872</created>
@@ -344,7 +366,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575713582736</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="介绍Executor、缓存机制">
+      <created>1575792558918</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1575792558918</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -380,6 +409,7 @@
     <MESSAGE value="生成目录" />
     <MESSAGE value="反射api操作注解示例&#10;mybatis流程详解" />
     <MESSAGE value="jdk动态代理  代理接口方法  自定义实现逻辑-自定义注解使用&#10;SqlSession执行原理初步解析" />
-    <option name="LAST_COMMIT_MESSAGE" value="jdk动态代理  代理接口方法  自定义实现逻辑-自定义注解使用&#10;SqlSession执行原理初步解析" />
+    <MESSAGE value="介绍Executor、缓存机制" />
+    <option name="LAST_COMMIT_MESSAGE" value="介绍Executor、缓存机制" />
   </component>
 </project>

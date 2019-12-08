@@ -16,6 +16,8 @@
    * [mybatis-test](#mybatis-test)
    * [导航目录](#导航目录)
    * [开个头](#开个头)
+      * [基本结构：](#基本结构)
+      * [几个问题：](#几个问题)
    * [XML基础知识（名称空间/文档验证/文档处理）](#xml基础知识名称空间文档验证文档处理)
       * [XML](#xml)
       * [XML名称空间](#xml名称空间)
@@ -39,7 +41,14 @@
             * [JDK动态代理](#jdk动态代理)
    * [从头开始](#从头开始)
       * [mybatis初始化流程](#mybatis初始化流程)
-      * [SqlSession运行原理解析](#SqlSession运行原理解析)
+      * [SqlSession运行原理解析](#sqlsession运行原理解析)
+         * [Executor](#executor)
+            * [BaseExecutor](#baseexecutor)
+               * [一级缓存](#一级缓存)
+               * [事务管理](#事务管理)
+            * [sql操作具体实现](#sql操作具体实现)
+            * [CachingExecutor 二级缓存](#cachingexecutor-二级缓存)
+   * [JDBC](#jdbc)
    * [<em><strong>mybatis思维导图</strong></em>](#mybatis思维导图)
    * [<em><strong>主要参考资料：</strong></em>](#主要参考资料)
 
@@ -60,7 +69,7 @@ mybatis整体架构分为三层，分别是基础支持层、核心处理层和�
     结果集/实体   UserEntiry  
 
 ## 几个问题：    
-  1. 读写配置文件，如何封装，提取配置的SQL语句  Configuration MapperProxy MappedStatement  
+  1. 读写配置文件，如何封装，提取配置的SQL语句并解析  Configuration MapperProxy MappedStatement  
   2. 接口在哪里实现，怎么实现，SQL如何执行 SqlSession Executor TypeHandler      
   3. 结果集映射返回期望的Java类型 ResultSetHandler  
   4. 对扩展开放   plugins  
@@ -401,6 +410,16 @@ Mybatis定义Transaction事务操作接口，它有两个实现JdbcTranscation�
 二级缓存是事务级别缓存，是一个全局缓存，被所有SqlSession(ref -> sqlSession javadoc)共享。      
 CachingExecutor通过装饰模式组合Executor添加新功能，提供二级缓存功能。当然Cache的线程安全由自身保证。    
 
+# JDBC
+
+JDBC JSR221规范，当前4.3(oracle)草案，4.0(sun)为最终版。  
+
+[JCP](https://www.jcp.org/en/home/index "JCP")  
+[JSR221](https://www.jcp.org/en/jsr/detail?id=221 "jdbc规范")   
+[JDBC4.0](./jdbc4.0-fr-spec.pdf "4.0")   
+[JDBC4.0规范中文](https://www.jianshu.com/nb/15028668 "JDBC4.0规范")   
+
+DataSource数据源实现 参考规范4.0 ch09---connections   
 
 
 # ***mybatis思维导图***  
@@ -426,5 +445,5 @@ CachingExecutor通过装饰模式组合Executor添加新功能，提供二级缓
 > - [x] [深入理解Java虚拟机 JVM高级特性与最佳实践 第2版](https://pan.baidu.com/s/17mGl_Xu-dgWITfoD8V90HA "3tv9")  
 > - [x] [Java深度历险](https://pan.baidu.com/s/1FTxaBmZPaiHKA4MPEF9p5g "rx5d")  
 > - [x] [Java语言规范 基于Java SE 8](https://pan.baidu.com/s/1OSxrl5dZOvEHddAG4exNEA "wl1r")  
-> - [x] [Java虚拟机规范  Java SE 8版](https://pan.baidu.com/s/14PjId4EJOHhyPxqQITaUTA "fvgs")  
+> - [x] [Java虚拟机规范  Java SE 8版](https://pan.baidu.com/s/14PjId4EJOHhyPxqQITaUTA "fvgs")   
 

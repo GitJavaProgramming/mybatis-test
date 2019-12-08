@@ -1,5 +1,8 @@
 package org.pp.mybatis.foundationsupportlayer.reflector.proxy.jdk;
 
+import org.pp.mybatis.foundationsupportlayer.jdbc.cases.prepare.BaseExecutor;
+import org.pp.mybatis.foundationsupportlayer.jdbc.cases.prepare.ExecutorFactory;
+
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -23,9 +26,11 @@ public class JdkInterfaceDynamicProxyHandler implements InvocationHandler {
         Annotation[] annotations = method.getAnnotations();
         for (Annotation annotation : annotations) {
             System.out.println("annotation annotationType: " + annotation.annotationType());
-            if (annotation.annotationType() == NAnnotation.class) {
-                NAnnotation nAnnotation = method.getAnnotation(NAnnotation.class);
-                System.out.println("annotation value: " + nAnnotation.value());
+            if (annotation.annotationType() == Select.class) {
+                Select select = method.getAnnotation(Select.class);
+                BaseExecutor executor = ExecutorFactory.newExecutor();
+                executor.doQuery(select.value());
+//                System.out.println("annotation value: " + select.value());
             }
         }
         // 接口不提供实现，需要自己实现方法处理逻辑
