@@ -1,6 +1,6 @@
 # mybatis-test
  
-**mybatis源码研究-2019/12/04**   
+**mybatis源码研究-2019/12/04-2019/12/09**   
  教你一周精通mybatis（调试版本：3.5.3）
  从整体到局部，最后再回到整体，从全局把控mybatis各个模块；  
  1.自底向上分析法，先对基础控件描述并阐述相关实现原理，带着问题一步一步完成封装，最终形成整体。     
@@ -49,8 +49,13 @@
             * [sql操作具体实现](#sql操作具体实现)
             * [CachingExecutor 二级缓存](#cachingexecutor-二级缓存)
    * [JDBC](#jdbc)
+   * [再回首](#再回首)
+      * [作结](#作结)
+         * [主要用到的设计模式](#主要用到的设计模式)
+         * [本文抽象出的3大知识板块](#本文抽象出的3大知识板块)
+         * [留点东(wen)西(ti)](#留点东wen西ti)
    * [<em><strong>mybatis思维导图</strong></em>](#mybatis思维导图)
-   * [<em><strong>主要参考资料：</strong></em>](#主要参考资料)
+   * [<em><strong>主要参考资料：</strong></em>](#主要参考资料) 
 
 ****
 ***mybatis整体架构***  
@@ -421,6 +426,43 @@ JDBC JSR221规范，当前4.3(oracle)草案，4.0(sun)为最终版。
 
 DataSource数据源实现 参考规范4.0 ch09---connections   
 
+# 再回首
+
+```java
+        // 1. SqlSessionFactory build from config document and initialize all
+        InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        // 2. open session and new Executor
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        // 3. get MapperProxyFactory instance from cache for create MapperProxy
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+
+        List<UserEntity> userList = userMapper.listAllUser();
+        System.out.println(JSON.toJSONString(userList));
+```
+## 作结
+mybatis很好的实践了面向接口编程。通过合理抽象、接口解耦实现了配置式的SQL控制。实践中大量用到面向接口编程、注册延后使用、  
+动态代理和装饰器模式。  
+### 主要用到的设计模式  
+创建 singleton  factory builder     
+结构 decorator     
+对象行为​ command proxy    
+类行为  template  
+  
+        关于结构：为了实现新功能，如何对一些对象进行组合。这样会形成更大的结构。
+        关于行为：涉及到算法和对象间职责的分配，同时它描述了对象或类之间的通信模式。
+            类行为：使用继承机制在类间分派行为。
+            对象行为： 使用对象复合，这会使依赖关系复杂。所以需要对象解耦或者说进行对象关系维护。
+        
+### 本文抽象出的3大知识板块
+* [XML基础知识（名称空间/文档验证/文档处理）](#xml基础知识名称空间文档验证文档处理)  
+* [Java高级特性](#java高级特性)  
+* [JDBC](#jdbc)  
+### 留点东(wen)西(ti)
+* OGNL    
+* 高性能SQL与SQL优化    
+* ResultSetHandler/TypeHandler    
+* 插件（动态代理与注解）与扩展    
 
 # ***mybatis思维导图***  
 > ![mybatis思维导图](./mybatis整体架构图01.png "mybatis思维导图")  
@@ -446,4 +488,5 @@ DataSource数据源实现 参考规范4.0 ch09---connections
 > - [x] [Java深度历险](https://pan.baidu.com/s/1FTxaBmZPaiHKA4MPEF9p5g "rx5d")  
 > - [x] [Java语言规范 基于Java SE 8](https://pan.baidu.com/s/1OSxrl5dZOvEHddAG4exNEA "wl1r")  
 > - [x] [Java虚拟机规范  Java SE 8版](https://pan.baidu.com/s/14PjId4EJOHhyPxqQITaUTA "fvgs")   
+> - [x] [设计模式-可复用面向对象软件的基础]  
 

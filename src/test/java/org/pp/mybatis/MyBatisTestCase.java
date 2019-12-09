@@ -5,7 +5,6 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.pp.mybatis.entity.UserEntity;
 import org.pp.mybatis.mapper.UserMapper;
@@ -16,26 +15,16 @@ import java.util.List;
 
 public class MyBatisTestCase {
 
-    private static SqlSession sqlSession;
-
-    @BeforeAll
-    public static void beforeOps() throws IOException {
-        if (sqlSession == null) {
-            // 获取配置文件输入流
-            InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
-            // 通过SqlSessionFactoryBuilder的build()方法创建SqlSessionFactory实例
-            SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-            // 调用openSession()方法创建SqlSession实例
-            sqlSession = sqlSessionFactory.openSession();
-        }
-    }
-
     @Test
     public void testMybatis() throws IOException {
 
-        // 获取UserMapper代理对象
+        // SqlSessionFactory build from config document and initialize all
+        InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        // open session and new Executor
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        // get MapperProxyFactory instance from cache for create MapperProxy
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        // 执行Mapper方法，获取执行结果
         List<UserEntity> userList = userMapper.listAllUser();
 
         System.out.println(JSON.toJSONString(userList));
