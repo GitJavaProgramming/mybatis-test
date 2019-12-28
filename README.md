@@ -8,7 +8,27 @@
  深挖mybatis所有核心知识点，真正掌握mybatis核心设计思想；    
  赠送各种流程图，思维导图。  
  
- 
+## 项目结构图
+    ├─java
+    │  └─org
+    │      └─pp
+    │          ├─annotation   注解模拟SQL操作
+    │          │  └─demo_sql
+    │          └─mybatis
+    │              ├─entity
+    │              ├─foundationsupportlayer
+    │              │  ├─jdbc        JDBC操作
+    │              │  │  └─cases
+    │              │  │      └─prepare
+    │              │  ├─parser      XPath-DTD-Schema
+    │              │  └─reflector
+    │              │      ├─beans
+    │              │      └─proxy       JDK动态代理，proxy handler 接口与实现分离
+    │              │          ├─interceptor
+    │              │          └─jdk
+    │              └─mapper
+    └─resources
+        └─mapper 
    
 导航目录
 =================

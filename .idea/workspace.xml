@@ -4,6 +4,8 @@
     <list default="true" id="2de4050e-80ba-4aa6-9c1f-fe7d161d95b8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/mybatis-test.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/org/pp/mybatis/MyBatisTestCase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/pp/mybatis/MyBatisTestCase.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +68,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../java" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -179,8 +181,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Client" />
-        <item itemvalue="JUnit.MyBatisTestCase" />
         <item itemvalue="JUnit.MyBatisTestCase.testMybatis" />
+        <item itemvalue="JUnit.MyBatisTestCase" />
         <item itemvalue="Application.Person" />
       </list>
     </recent_temporary>
@@ -206,7 +208,21 @@
       <workItem from="1575766045450" duration="35845000" />
       <workItem from="1575811098602" duration="561000" />
       <workItem from="1575852523619" duration="3419000" />
-      <workItem from="1575859224775" duration="473000" />
+      <workItem from="1575859224775" duration="3184000" />
+      <workItem from="1575875427608" duration="414000" />
+      <workItem from="1575875884966" duration="96000" />
+      <workItem from="1576202372002" duration="639000" />
+      <workItem from="1576204486290" duration="1200000" />
+      <workItem from="1576217472909" duration="85000" />
+      <workItem from="1576307555565" duration="173000" />
+      <workItem from="1576396506521" duration="454000" />
+      <workItem from="1576414042673" duration="483000" />
+      <workItem from="1576502803133" duration="610000" />
+      <workItem from="1576929356136" duration="1202000" />
+      <workItem from="1576974940449" duration="25000" />
+      <workItem from="1577149961345" duration="608000" />
+      <workItem from="1577325827037" duration="33000" />
+      <workItem from="1577499362945" duration="150000" />
     </task>
     <task id="LOCAL-00001" summary="第一个mybatis项目&#10;mysql-connector &#10;测试读取文件访问数据库">
       <created>1575446001872</created>
@@ -369,7 +385,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575855889411</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="总结：&#10;3大知识板块：&#10;java与xml&#10;java反射、泛型、注解、动态代理  &#10;JDBC规范 api使用&#10;接口编程与设计模式的应用&#10;Java8特性&#10;测试驱动与敏捷开发">
+      <created>1575859788211</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1575859788211</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -408,6 +431,7 @@
     <MESSAGE value="介绍Executor、缓存机制" />
     <MESSAGE value="加入JDBC规范&#10;接口代理和jdbc操作的连接小例子" />
     <MESSAGE value="总结：&#10;3大知识板块  &#10;接口编程与设计模式的应用" />
-    <option name="LAST_COMMIT_MESSAGE" value="总结：&#10;3大知识板块  &#10;接口编程与设计模式的应用" />
+    <MESSAGE value="总结：&#10;3大知识板块：&#10;java与xml&#10;java反射、泛型、注解、动态代理  &#10;JDBC规范 api使用&#10;接口编程与设计模式的应用&#10;Java8特性&#10;测试驱动与敏捷开发" />
+    <option name="LAST_COMMIT_MESSAGE" value="总结：&#10;3大知识板块：&#10;java与xml&#10;java反射、泛型、注解、动态代理  &#10;JDBC规范 api使用&#10;接口编程与设计模式的应用&#10;Java8特性&#10;测试驱动与敏捷开发" />
   </component>
 </project>
