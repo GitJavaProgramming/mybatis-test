@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2de4050e-80ba-4aa6-9c1f-fe7d161d95b8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/mybatis-test.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/org/pp/mybatis/MyBatisTestCase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/pp/mybatis/MyBatisTestCase.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -222,7 +219,8 @@
       <workItem from="1576974940449" duration="25000" />
       <workItem from="1577149961345" duration="608000" />
       <workItem from="1577325827037" duration="33000" />
-      <workItem from="1577499362945" duration="150000" />
+      <workItem from="1577499362945" duration="234000" />
+      <workItem from="1577509482592" duration="10000" />
     </task>
     <task id="LOCAL-00001" summary="第一个mybatis项目&#10;mysql-connector &#10;测试读取文件访问数据库">
       <created>1575446001872</created>
@@ -392,7 +390,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575859788211</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="java与xml java反射、泛型、注解、动态代理  JDBC规范 api使用 接口编程与设计模式的应用 Java8特性 测试驱动与敏捷开发">
+      <created>1577499555095</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1577499555095</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -432,6 +437,7 @@
     <MESSAGE value="加入JDBC规范&#10;接口代理和jdbc操作的连接小例子" />
     <MESSAGE value="总结：&#10;3大知识板块  &#10;接口编程与设计模式的应用" />
     <MESSAGE value="总结：&#10;3大知识板块：&#10;java与xml&#10;java反射、泛型、注解、动态代理  &#10;JDBC规范 api使用&#10;接口编程与设计模式的应用&#10;Java8特性&#10;测试驱动与敏捷开发" />
-    <option name="LAST_COMMIT_MESSAGE" value="总结：&#10;3大知识板块：&#10;java与xml&#10;java反射、泛型、注解、动态代理  &#10;JDBC规范 api使用&#10;接口编程与设计模式的应用&#10;Java8特性&#10;测试驱动与敏捷开发" />
+    <MESSAGE value="java与xml java反射、泛型、注解、动态代理  JDBC规范 api使用 接口编程与设计模式的应用 Java8特性 测试驱动与敏捷开发" />
+    <option name="LAST_COMMIT_MESSAGE" value="java与xml java反射、泛型、注解、动态代理  JDBC规范 api使用 接口编程与设计模式的应用 Java8特性 测试驱动与敏捷开发" />
   </component>
 </project>
