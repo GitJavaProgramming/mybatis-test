@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2de4050e-80ba-4aa6-9c1f-fe7d161d95b8" name="Default Changelist" comment="public final class Class&lt;T&gt; implements java.io.Serializable, GenericDeclaration, Type, AnnotatedElement 继承体系之Class">
+    <list default="true" id="2de4050e-80ba-4aa6-9c1f-fe7d161d95b8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/pp/annotation/annotation.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/pp/annotation/annotation.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,7 +70,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -239,7 +239,8 @@
       <workItem from="1580300137793" duration="243000" />
       <workItem from="1581243490007" duration="4970000" />
       <workItem from="1581310289647" duration="460000" />
-      <workItem from="1581840112482" duration="206000" />
+      <workItem from="1581840112482" duration="284000" />
+      <workItem from="1581862628938" duration="155000" />
     </task>
     <task id="LOCAL-00001" summary="第一个mybatis项目&#10;mysql-connector &#10;测试读取文件访问数据库">
       <created>1575446001872</created>
@@ -423,7 +424,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581244316632</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="common annotation">
+      <created>1581840339341</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1581840339341</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -468,6 +476,7 @@
     <MESSAGE value="public final class Class&lt;T&gt; implements java.io.Serializable,&#10;                              GenericDeclaration,&#10;                              Type,&#10;                              AnnotatedElement" />
     <MESSAGE value="public final class Class&lt;T&gt; implements java.io.Serializable, GenericDeclaration, Type, AnnotatedElement" />
     <MESSAGE value="public final class Class&lt;T&gt; implements java.io.Serializable, GenericDeclaration, Type, AnnotatedElement 继承体系之Class" />
-    <option name="LAST_COMMIT_MESSAGE" value="public final class Class&lt;T&gt; implements java.io.Serializable, GenericDeclaration, Type, AnnotatedElement 继承体系之Class" />
+    <MESSAGE value="common annotation" />
+    <option name="LAST_COMMIT_MESSAGE" value="common annotation" />
   </component>
 </project>
