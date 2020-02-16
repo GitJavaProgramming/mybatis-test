@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2de4050e-80ba-4aa6-9c1f-fe7d161d95b8" name="Default Changelist" comment="">
+    <list default="true" id="2de4050e-80ba-4aa6-9c1f-fe7d161d95b8" name="Default Changelist" comment="public final class Class&lt;T&gt; implements java.io.Serializable, GenericDeclaration, Type, AnnotatedElement 继承体系之Class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/reflector/proxy/jdk/JdkInterfaceDynamicProxyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/pp/mybatis/foundationsupportlayer/reflector/proxy/jdk/JdkInterfaceDynamicProxyHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/pp/mybatis/foundationsupportlayer/reflector/proxy/jdk/JdkInterfaceDynamicProxyHandler$Holder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/pp/mybatis/foundationsupportlayer/reflector/proxy/jdk/JdkInterfaceDynamicProxyHandler$Holder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/pp/mybatis/foundationsupportlayer/reflector/proxy/jdk/JdkInterfaceDynamicProxyHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/pp/mybatis/foundationsupportlayer/reflector/proxy/jdk/JdkInterfaceDynamicProxyHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/pp/annotation/annotation.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/pp/annotation/annotation.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -107,7 +105,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="Application.TableCreator">
     <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.pp.mybatis.foundationsupportlayer.Client" />
       <module name="mybatis-test" />
@@ -140,6 +138,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.pp.mybatis.foundationsupportlayer.reflector.beans.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TableCreator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.pp.annotation.demo_sql.TableCreator" />
+      <module name="mybatis-test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.pp.annotation.demo_sql.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -180,6 +191,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TableCreator" />
         <item itemvalue="Application.Client" />
         <item itemvalue="JUnit.MyBatisTestCase.testMybatis" />
         <item itemvalue="JUnit.MyBatisTestCase" />
@@ -225,7 +237,9 @@
       <workItem from="1577499362945" duration="234000" />
       <workItem from="1577509482592" duration="10000" />
       <workItem from="1580300137793" duration="243000" />
-      <workItem from="1581243490007" duration="606000" />
+      <workItem from="1581243490007" duration="4970000" />
+      <workItem from="1581310289647" duration="460000" />
+      <workItem from="1581840112482" duration="206000" />
     </task>
     <task id="LOCAL-00001" summary="第一个mybatis项目&#10;mysql-connector &#10;测试读取文件访问数据库">
       <created>1575446001872</created>
@@ -402,7 +416,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577499555095</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="public final class Class&lt;T&gt; implements java.io.Serializable, GenericDeclaration, Type, AnnotatedElement 继承体系之Class">
+      <created>1581244316632</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1581244316632</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -443,6 +464,10 @@
     <MESSAGE value="总结：&#10;3大知识板块  &#10;接口编程与设计模式的应用" />
     <MESSAGE value="总结：&#10;3大知识板块：&#10;java与xml&#10;java反射、泛型、注解、动态代理  &#10;JDBC规范 api使用&#10;接口编程与设计模式的应用&#10;Java8特性&#10;测试驱动与敏捷开发" />
     <MESSAGE value="java与xml java反射、泛型、注解、动态代理  JDBC规范 api使用 接口编程与设计模式的应用 Java8特性 测试驱动与敏捷开发" />
-    <option name="LAST_COMMIT_MESSAGE" value="java与xml java反射、泛型、注解、动态代理  JDBC规范 api使用 接口编程与设计模式的应用 Java8特性 测试驱动与敏捷开发" />
+    <MESSAGE value="isAnnotationPresent" />
+    <MESSAGE value="public final class Class&lt;T&gt; implements java.io.Serializable,&#10;                              GenericDeclaration,&#10;                              Type,&#10;                              AnnotatedElement" />
+    <MESSAGE value="public final class Class&lt;T&gt; implements java.io.Serializable, GenericDeclaration, Type, AnnotatedElement" />
+    <MESSAGE value="public final class Class&lt;T&gt; implements java.io.Serializable, GenericDeclaration, Type, AnnotatedElement 继承体系之Class" />
+    <option name="LAST_COMMIT_MESSAGE" value="public final class Class&lt;T&gt; implements java.io.Serializable, GenericDeclaration, Type, AnnotatedElement 继承体系之Class" />
   </component>
 </project>

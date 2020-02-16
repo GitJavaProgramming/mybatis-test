@@ -76,3 +76,11 @@ AnnotatedElement 接口是所有程序元素（Class、Method和Constructor）�
 　　方法3：boolean is AnnotationPresent(Class<?extends Annotation> annotationClass):判断该程序元素上是否包含指定类型的注解，存在则返回true，否则返回false.
 　　方法4：Annotation[] getDeclaredAnnotations()：返回直接存在于此元素上的所有注释。与此接口中的其他方法不同，该方法将忽略继承的注释。（如果没有注释直接存在于此元素上，则返回长度为零的一个数组。）
 该方法的调用者可以随意修改返回的数组；这不会对其他调用者返回的数组产生任何影响。
+
+Common annotations
+Common annotations原本是Java EE 5.0(JSR 244)规范的一部分，现在SUN把它的一部分放到了Java SE 6.0中.随着Annotation元数据功能(JSR 175)加入到Java SE 5.0里面
+javax.annotation包下
+@Generated @PostConstruct @PreDestroy @Resource等等
+@Resource 用于标注所依赖的资源,容器据此注入外部资源依赖，有基于字段的注入和基于setter方法的注入两种方式
+@PostConstruct 标注当容器注入所有依赖之后运行的方法，用来进行依赖注入后的初始化工作，只有一个方法可以标注为PostConstruct
+@PreDestroy 当对象实例将要被从容器当中删掉之前，要执行的回调方法要标注为PreDestroy
